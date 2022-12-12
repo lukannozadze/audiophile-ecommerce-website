@@ -1,5 +1,7 @@
+import MainPage from "./Pages/Main Page/MainPage";
+
 function App() {
-  return <h1 className="text-red-400">test</h1>;
+  return <MainPage />;
 }
 
 export default App;
