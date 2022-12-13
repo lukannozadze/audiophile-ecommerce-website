@@ -5,7 +5,7 @@ const NewProduct = () => {
       className=" bg-[#0E0E0E]
     flex justify-center mb-[40px]"
     >
-      <div className="relative">
+      <div>
         <img src={newProductImgPath} alt="" />
         <div className="text-white font-manrope text-center absolute top-48">
           <span className="text-[14px] leading-[19px] tracking-[10px] font-normal opacity-50">

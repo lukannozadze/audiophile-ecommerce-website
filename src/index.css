@@ -12,3 +12,6 @@
 #instagram:hover path {
   fill: #d87d4a;
 }
+#modal::backdrop {
+  background: red;
+}

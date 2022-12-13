@@ -22,7 +22,7 @@ const ProductsCategory = () => {
   ];
   return (
     <section>
-      <ul className="flex flex-col gap-[62px] items-center mt-[40px] font-manrope mb-[120px]">
+      <ul className="flex flex-col gap-[62px] items-center mt-[40px] font-manrope">
         {iconsArr.map((item) => (
           <li key={item.id}>
             <div className="w-[327px] h-[165px] bg-[#F1F1F1]  flex flex-col items-center rounded-lg">
