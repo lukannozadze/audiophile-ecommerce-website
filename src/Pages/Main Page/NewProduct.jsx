@@ -20,7 +20,7 @@ const NewProduct = () => {
             made for the passionate music enthusiast.
           </p>
 
-          <button className="mt-[32px] bg-[#D87D4A] w-[160px] h-[48px] p-auto text-[13px] font-bold tracking-[1px] ">
+          <button className="mt-[32px] bg-[#D87D4A] w-[160px] h-[48px] p-auto text-[13px] font-bold tracking-[1px] hover:bg-[#FBAF85] ">
             SEE PRODUCT
           </button>
         </div>

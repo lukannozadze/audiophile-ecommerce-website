@@ -1,7 +1,7 @@
-import headphonesPath from "../../src/assets/headphones.png";
-import speakersPath from "../../src/assets/speakers.png";
-import earphonesPath from "../../src/assets/earphones.png";
-import arrowPath from "../../src/assets/arrow.png";
+import headphonesPath from "../../assets/headphones.png";
+import speakersPath from "../../assets/speakers.png";
+import earphonesPath from "../../assets/earphones.png";
+import arrowPath from "../../assets/arrow.png";
 const ProductsCategory = () => {
   const iconsArr = [
     {
@@ -22,20 +22,20 @@ const ProductsCategory = () => {
   ];
   return (
     <section>
-      <ul className="flex flex-col gap-[32px] items-center mt-[40px] font-manrope">
+      <ul className="flex flex-col gap-[62px] items-center mt-[40px] font-manrope mb-[120px]">
         {iconsArr.map((item) => (
           <li key={item.id}>
-            <div className="w-[327px] h-[165px] bg-[#F1F1F1]  flex flex-col items-center">
+            <div className="w-[327px] h-[165px] bg-[#F1F1F1]  flex flex-col items-center rounded-lg">
               <img
                 className="-translate-y-[2.5rem]  w-[147px] h-[133px] "
                 src={item.path}
                 alt=""
               />
-              <h3 className="uppercase text-[15px] font-bold leading-[21px] tracking-[1px]  ">
+              <h3 className="uppercase text-[15px] font-bold leading-[21px] tracking-[1px] mt-[-42px] mb-[17px]  ">
                 {item.name}
               </h3>
-              <div className="flex  justify-center  ">
-                <span className="uppercase text-[13px] leading-[18px] tracking-[1px] text-black opacity-50">
+              <div className="flex  justify-center gap-[13px] ">
+                <span className="uppercase text-[13px] leading-[18px] tracking-[1px] text-black font-bold opacity-50 hover:text-[#D87D4A] cursor-pointer">
                   shop
                 </span>
                 <button>

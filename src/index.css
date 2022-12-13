@@ -1,4 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#facebook:hover path {
+  fill: #d87d4a;
+}
+#twitter:hover path {
+  fill: #d87d4a;
+}
+#instagram:hover path {
+  fill: #d87d4a;
+}
