@@ -10,7 +10,7 @@ const Header = () => {
     dispatch(dropdownActions.toggle());
   };
   return (
-    <header className="w-screen h-[90px] bg-[#191919] flex justify-around items-center border-b-[1px] border-[#979797] ">
+    <header className=" w-screen h-[90px] bg-[#191919] flex justify-around items-center border-b-[1px] border-white border-opacity-10">
       <div>
         <button onClick={toggleModal}>
           <img src={dropDownIconPath} alt="" />

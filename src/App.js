@@ -1,8 +1,8 @@
 import MainPage from "./Pages/Main Page/MainPage";
-import DropdownModal from "../src/Pages/UI/DropdownModal";
+import HeadphonesPage from "./Pages/Headphones/HeadphonesPage";
 
 function App() {
-  return <MainPage />;
+  return <HeadphonesPage />;
 }
 
 export default App;

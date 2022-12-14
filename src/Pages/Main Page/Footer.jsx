@@ -6,7 +6,7 @@ import InstagramIcon from "../UI/InstagramIcon";
 const navListArr = ["home", "headphones", "speakers", "earphones"];
 const Footer = () => {
   return (
-    <div className="w-screen bg-[#101010] text-white font-manrope  flex flex-col items-center gap-12">
+    <div className=" bg-[#101010] text-white font-manrope  flex flex-col items-center gap-12">
       <div className="wrapper h-1 w-[101px]  bg-[#D87D4A]"></div>
       <img className="self-center" src={audiophilePath} alt="" />
       <nav>
