@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import ProductsCategory from "../Main Page/ProductsCategory";
 import DropdownModal from "../UI/DropdownModal";
 import Description from "./Description";
@@ -8,16 +7,12 @@ import Header from "./Header";
 import NewProduct from "./NewProduct";
 import SecondModelProduct from "./SecondModelProduct";
 import ThirdModelProduct from "./ThirdModelProduct";
-
+import { useSelector } from "react-redux";
 const MainPage = () => {
-  const [modalIsShown, setModalIsShown] = useState(false);
-  const getModalStatus = (data) => {
-    setModalIsShown(data);
-  };
-
+  const modalIsShown = useSelector((state) => state.dropdown.modalIsShown);
   return (
     <div className={`${modalIsShown ? "fixed" : ""}`}>
-      <Header onGetModalStatus={getModalStatus} />
+      <Header />
       {modalIsShown && (
         <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 ">
           <DropdownModal />
@@ -42,38 +37,5 @@ const MainPage = () => {
       </footer>
     </div>
   );
-
-  // console.log(modalIsShown);
-  // if (modalIsShown) {
-  //   return (
-  //     <div>
-  //       <Header onGetModalStatus={getModalStatus} />
-  //       <DropdownModal />
-  //     </div>
-  //   );
-  // } else {
-  //   return (
-  //     <div>
-  //       <Header onGetModalStatus={getModalStatus} />
-  //       <main className=" flex flex-col items-center">
-  //         <NewProduct />
-  //         <section className="pb-[120px]">
-  //           <ProductsCategory />
-  //         </section>
-  //         <section className="flex flex-col gap-[24px] pb-[120px]">
-  //           <FirstModelProduct />
-  //           <SecondModelProduct />
-  //           <ThirdModelProduct />
-  //         </section>
-  //         <section className="pb-[120px]">
-  //           <Description />
-  //         </section>
-  //       </main>
-  //       <footer>
-  //         <Footer />
-  //       </footer>
-  //     </div>
-  //   );
-  // }
 };
 export default MainPage;

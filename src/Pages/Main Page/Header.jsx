@@ -1,13 +1,13 @@
 import CartIcon from "../../assets/CartIcon";
 import AudiophileImgPath from "../../assets/audiophile.png";
 import dropDownIconPath from "../../assets/dropdown-icon.png";
-import { useState } from "react";
-const Header = (props) => {
-  const [modalIsShown, setModalIsShown] = useState(false);
+import { useDispatch } from "react-redux";
+import { dropdownActions } from "../../store/store";
 
+const Header = () => {
+  const dispatch = useDispatch();
   const toggleModal = () => {
-    setModalIsShown(!modalIsShown);
-    props.onGetModalStatus(modalIsShown);
+    dispatch(dropdownActions.toggle());
   };
   return (
     <header className="w-screen h-[90px] bg-[#191919] flex justify-around items-center border-b-[1px] border-[#979797] ">
