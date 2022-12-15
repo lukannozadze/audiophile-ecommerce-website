@@ -2,8 +2,8 @@ import Header from "../Main Page/Header";
 import ProductsCategory from "../Main Page/ProductsCategory";
 import Description from "../Main Page/Description";
 import Footer from "../Main Page/Footer";
-import CategoryNewProduct from "../UI/CategoryNewProduct";
-import DropdownModal from "../UI/DropdownModal";
+import CategoryNewProduct from "../UI/CategoryUI/CategoryNewProduct";
+import DropdownModal from "../UI/MainPageUI/DropdownModal";
 import YX1Path from "../../assets/Category Page Images/yx1-wireless-earphones.png";
 
 import { useSelector } from "react-redux";

@@ -1,7 +1,7 @@
 import audiophilePath from "../../assets/audiophile.png";
-import FacebookIcon from "../UI/FacebookIcon";
-import TwitterIcon from "../UI/TwitterIcon";
-import InstagramIcon from "../UI/InstagramIcon";
+import FacebookIcon from "../UI/SocialMediaIcons/FacebookIcon";
+import TwitterIcon from "../UI/SocialMediaIcons/TwitterIcon";
+import InstagramIcon from "../UI/SocialMediaIcons/InstagramIcon";
 
 const navListArr = ["home", "headphones", "speakers", "earphones"];
 const Footer = () => {

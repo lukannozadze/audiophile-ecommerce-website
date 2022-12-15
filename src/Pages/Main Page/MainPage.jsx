@@ -1,5 +1,5 @@
 import ProductsCategory from "../Main Page/ProductsCategory";
-import DropdownModal from "../UI/DropdownModal";
+import DropdownModal from "../UI/MainPageUI/DropdownModal";
 import Description from "./Description";
 import FirstModelProduct from "./FirstModelProduct";
 import Footer from "./Footer";

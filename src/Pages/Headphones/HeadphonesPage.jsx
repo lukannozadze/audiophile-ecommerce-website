@@ -1,13 +1,13 @@
 import Header from "../Main Page/Header";
-import CategoryNewProduct from "../UI/CategoryNewProduct";
+import CategoryNewProduct from "../UI/CategoryUI/CategoryNewProduct";
 import XX992Path from "../../assets/Category Page Images/xx99-mark-2.png";
 import XX991Path from "../../assets/Category Page Images/xx99-mark-1.png";
 import XX59Path from "../../assets/Category Page Images/xx59.png";
 import ProductsCategory from "../Main Page/ProductsCategory";
 import Description from "../Main Page/Description";
 import Footer from "../Main Page/Footer";
-import CategoryProduct from "../UI/CategoryProduct";
-import DropdownModal from "../UI/DropdownModal";
+import CategoryProduct from "../UI/CategoryUI/CategoryProduct";
+import DropdownModal from "../UI/MainPageUI/DropdownModal";
 import { useSelector } from "react-redux";
 const HeadphonesPage = () => {
   const modalIsShown = useSelector((state) => state.dropdown.modalIsShown);
