@@ -3,6 +3,9 @@ import XX992Path from "../../assets/Category Page Images/xx99-mark-2.png";
 import firstImgPath from "../../assets/First Model Headphone Images/first-image.png";
 import secondImgPath from "../../assets/First Model Headphone Images/second-image.png";
 import thirdImgPath from "../../assets/First Model Headphone Images/third-image.png";
+import firstOfferedPath from "../../assets/First Model Headphone Images/first-offered.png";
+import secondOfferedPath from "../../assets/First Model Headphone Images/second-offered.png";
+import thirdOfferedPath from "../../assets/First Model Headphone Images/third-offered.png";
 const boxItemsNamesArr = [
   "Headphone Unit",
   "Replacement Earcups",
@@ -32,6 +35,15 @@ const boxItemsQuantityArr = [
     value: 1,
   },
 ];
+const offeredSectionArr = [
+  {
+    path: firstOfferedPath,
+    title: "xx99 mark I",
+    routePath: "/xx9-mark-one-headphones",
+  },
+  { path: secondOfferedPath, title: "xx59", routePath: "/xx59-headphones" },
+  { path: thirdOfferedPath, title: "zx9 speaker", routePath: "/zx9-speaker" },
+];
 const FirstModelHeadphone = () => {
   return (
     <DetailedPage
@@ -39,6 +51,8 @@ const FirstModelHeadphone = () => {
       productTitle="XX99 Mark II
   Headphones"
       productDescription="The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound."
+      newProductText="new product"
+      newProductClass="text-sm tracking-[10px] text-[#D87D4A] uppercase"
       price="2,999"
       features="Featuring a genuine leather head strap and premium earcups, these headphones deliver superior comfort for those who like to enjoy endless listening. It includes intuitive controls designed for any situation. Whether you’re taking a business call or just in your own personal space, the auto on/off and pause features ensure that you’ll never miss a beat.
 
@@ -48,6 +62,7 @@ const FirstModelHeadphone = () => {
       firstPath={firstImgPath}
       secondPath={secondImgPath}
       thirdPath={thirdImgPath}
+      offeredSectionArr={offeredSectionArr}
     />
   );
 };

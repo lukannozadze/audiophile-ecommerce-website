@@ -1,4 +1,5 @@
 import newProductImgPath from "../../assets/Bitmap.png";
+import { Link } from "react-router-dom";
 const NewProduct = () => {
   return (
     <section
@@ -23,10 +24,11 @@ const NewProduct = () => {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </p>
-
-          <button className="mt-[28px] bg-[#D87D4A] w-[160px] h-[48px] p-auto text-[13px] font-bold tracking-[1px] hover:bg-[#FBAF85] ">
-            SEE PRODUCT
-          </button>
+          <Link to="/xx9-mark-two-headphones">
+            <button className="mt-[28px] bg-[#D87D4A] w-[160px] h-[48px] p-auto text-[13px] font-bold tracking-[1px] hover:bg-[#FBAF85] ">
+              SEE PRODUCT
+            </button>
+          </Link>
         </div>
       </div>
     </section>

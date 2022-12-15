@@ -5,9 +5,7 @@ const DetailedProduct = (props) => {
         <img src={props.productImgPath} alt="" />
       </div>
       <div>
-        <span className="text-sm tracking-[10px] text-[#D87D4A] uppercase">
-          new product
-        </span>
+        <span className={props.newProductClass}>{props.newProductText}</span>
         <h2 className="uppercase font-bold text-[28px] leading-[38px] tracking-[1px] py-[24px]">
           {props.productTitle}
         </h2>

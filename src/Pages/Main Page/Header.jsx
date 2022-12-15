@@ -3,6 +3,7 @@ import AudiophileImgPath from "../../assets/audiophile.png";
 import dropDownIconPath from "../../assets/dropdown-icon.png";
 import { useDispatch } from "react-redux";
 import { dropdownActions } from "../../store/store";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,9 @@ const Header = () => {
         </button>
       </div>
       <div>
-        <img src={AudiophileImgPath} alt="" />
+        <Link to="/">
+          <img src={AudiophileImgPath} alt="" />
+        </Link>
       </div>
       <div>
         <CartIcon />

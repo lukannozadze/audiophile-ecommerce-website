@@ -5,7 +5,7 @@ const InTheBox = (props) => {
         in the box
       </h2>
       <div className="flex gap-6  ">
-        <ul className="text-[#D87D4A] text-[15px] leading-[25px]">
+        <ul className="text-[#D87D4A] text-[15px] leading-[25px] font-bold">
           {props.boxItemsQuantity.map((quantity) => (
             <li key={quantity.key}>{`${quantity.value}x`}</li>
           ))}

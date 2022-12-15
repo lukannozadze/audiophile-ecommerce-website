@@ -7,6 +7,9 @@ const dropdownSlice = createSlice({
     toggle(state) {
       state.modalIsShown = !state.modalIsShown;
     },
+    modalOff(state) {
+      state.modalIsShown = false;
+    },
   },
 });
 export default dropdownSlice;

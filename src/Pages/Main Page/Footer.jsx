@@ -2,8 +2,14 @@ import audiophilePath from "../../assets/audiophile.png";
 import FacebookIcon from "../UI/SocialMediaIcons/FacebookIcon";
 import TwitterIcon from "../UI/SocialMediaIcons/TwitterIcon";
 import InstagramIcon from "../UI/SocialMediaIcons/InstagramIcon";
+import { Link } from "react-router-dom";
 
-const navListArr = ["home", "headphones", "speakers", "earphones"];
+const navListArr = [
+  { name: "home", routePath: "/" },
+  { name: "headphones", routePath: "/headphones" },
+  { name: "speakers", routePath: "/speakers" },
+  { name: "earphones", routePath: "/earphones" },
+];
 const Footer = () => {
   return (
     <div className=" bg-[#101010] text-white font-manrope  flex flex-col items-center gap-12">
@@ -11,10 +17,12 @@ const Footer = () => {
       <img className="self-center" src={audiophilePath} alt="" />
       <nav>
         <ul className="flex flex-col gap-4 items-center uppercase text-[13px] leading-[25px] tracking-[2px] font-bold">
-          {navListArr.map((name) => (
-            <li key={name} className="hover:text-[#D87D4A] cursor-pointer">
-              {name}
-            </li>
+          {navListArr.map((item) => (
+            <Link key={item.name} to={item.routePath}>
+              <li className="hover:text-[#D87D4A] cursor-pointer">
+                {item.name}
+              </li>
+            </Link>
           ))}
         </ul>
       </nav>

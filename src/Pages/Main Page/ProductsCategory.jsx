@@ -2,22 +2,29 @@ import headphonesPath from "../../assets/headphones.png";
 import speakersPath from "../../assets/speakers.png";
 import earphonesPath from "../../assets/earphones.png";
 import arrowPath from "../../assets/arrow.png";
+import { Link } from "react-router-dom";
+import { dropdownActions } from "../../store/store";
+import { useDispatch } from "react-redux";
 const ProductsCategory = () => {
+  const dispatch = useDispatch();
   const iconsArr = [
     {
       id: "h1",
       path: headphonesPath,
       name: "headphones",
+      routePath: "/headphones",
     },
     {
       id: "h2",
       path: speakersPath,
       name: "speakers",
+      routePath: "/speakers",
     },
     {
       id: "h3",
       path: earphonesPath,
       name: "earphones",
+      routePath: "/earphones",
     },
   ];
   return (
@@ -35,9 +42,16 @@ const ProductsCategory = () => {
                 {item.name}
               </h3>
               <div className="flex  justify-center gap-[13px] ">
-                <span className="uppercase text-[13px] leading-[18px] tracking-[1px] text-black font-bold opacity-50 hover:text-[#D87D4A] cursor-pointer">
-                  shop
-                </span>
+                <Link to={item.routePath}>
+                  <span
+                    onClick={() => {
+                      dispatch(dropdownActions.modalOff());
+                    }}
+                    className="uppercase text-[13px] leading-[18px] tracking-[1px] text-black font-bold opacity-50 hover:text-[#D87D4A] cursor-pointer"
+                  >
+                    shop
+                  </span>
+                </Link>
                 <button>
                   <img src={arrowPath} alt="" />
                 </button>

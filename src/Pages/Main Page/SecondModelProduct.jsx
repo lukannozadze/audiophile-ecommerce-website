@@ -1,4 +1,5 @@
 import ZX7SpeakerPath from "../../assets/ZX7-speaker.png";
+import { Link } from "react-router-dom";
 const SecondModelProduct = () => {
   return (
     <div
@@ -9,9 +10,11 @@ const SecondModelProduct = () => {
         <h2 className="uppercase text-[28px] leading-[38px] tracking-[2px] font-bold text-black mb-8">
           zx7 speaker
         </h2>
-        <button className="uppercase w-[160px] h-[48px] p-auto text-[13px] leading-[18px] tracking-[1px] font-bold border-2 border-black hover:text-white hover:bg-black ">
-          see product
-        </button>
+        <Link to="/zx7-speaker">
+          <button className="uppercase w-[160px] h-[48px] p-auto text-[13px] leading-[18px] tracking-[1px] font-bold border-2 border-black hover:text-white hover:bg-black ">
+            see product
+          </button>
+        </Link>
       </div>
     </div>
   );

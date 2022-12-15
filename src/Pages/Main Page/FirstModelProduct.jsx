@@ -1,5 +1,6 @@
 import ZX9PatternPath from "../../assets/ZX9SPattern.png";
 import ZX9SpeakerPath from "../../assets/ZX9-speaker.png";
+import { Link } from "react-router-dom";
 const FirstModelProduct = () => {
   return (
     <div
@@ -19,9 +20,11 @@ const FirstModelProduct = () => {
         Upgrade to premium speakers that are phenomenally built to deliver truly
         remarkable sound.
       </p>
-      <button className="uppercase w-[160px] h-[48px] font-bold p-auto text-white text-[13px] leading-[18px] tracking-[1px] bg-black hover:bg-[#4C4C4C]">
-        see product
-      </button>
+      <Link to="/zx9-speaker">
+        <button className="uppercase w-[160px] h-[48px] font-bold p-auto text-white text-[13px] leading-[18px] tracking-[1px] bg-black hover:bg-[#4C4C4C]">
+          see product
+        </button>
+      </Link>
     </div>
   );
 };

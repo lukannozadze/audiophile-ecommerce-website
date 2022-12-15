@@ -1,4 +1,5 @@
 import YX1EarphonesPath from "../../assets/YX1-earphones.png";
+import { Link } from "react-router-dom";
 const ThirdModelProduct = () => {
   return (
     <div className="flex flex-col gap-6 rounded-lg">
@@ -9,9 +10,11 @@ const ThirdModelProduct = () => {
         <h2 className="uppercase text-[28px] leading-[38px] tracking-[2px] font-bold text-black mb-8 ">
           yx1 earphones
         </h2>
-        <button className="uppercase w-[160px] h-[48px] p-auto text-[13px] leading-[18px] tracking-[1px] font-bold border-2 border-black hover:text-white hover:bg-black">
-          see product
-        </button>
+        <Link to="/yx1-wireless-earphones">
+          <button className="uppercase w-[160px] h-[48px] p-auto text-[13px] leading-[18px] tracking-[1px] font-bold border-2 border-black hover:text-white hover:bg-black">
+            see product
+          </button>
+        </Link>
       </div>
     </div>
   );

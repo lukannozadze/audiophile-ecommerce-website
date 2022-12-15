@@ -7,9 +7,8 @@ import { useSelector } from "react-redux";
 import DetailedProduct from "./DetailedProduct";
 import InTheBox from "./InTheBox";
 import OfferedProduct from "./OfferedProduct";
-import firstOfferedPath from "../../../assets/First Model Headphone Images/first-offered.png";
-import secondOfferedPath from "../../../assets/First Model Headphone Images/second-offered.png";
-import thirdOfferedPath from "../../../assets/First Model Headphone Images/third-offered.png";
+
+import { Link } from "react-router-dom";
 
 const DetailedPage = (props) => {
   const modalIsShown = useSelector((state) => state.dropdown.modalIsShown);
@@ -23,13 +22,19 @@ const DetailedPage = (props) => {
       )}
 
       <main className=" flex flex-col items-center font-manrope ">
-        <span className="self-start pl-[24px] text-[15px] leading-[25px] opacity-50 pt-[16px] pb-[24px]">
-          Go Back
-        </span>
+        <div className="self-start pl-[24px]  pt-[16px] pb-[24px]">
+          <Link to="/">
+            <span className="text-[15px] leading-[25px] opacity-50">
+              Go Back
+            </span>
+          </Link>
+        </div>
         <DetailedProduct
           productImgPath={props.productImgPath}
           productTitle={props.productTitle}
           productDescription={props.productDescription}
+          newProductText={props.newProductText}
+          newProductClass={props.newProductClass}
           price={props.price}
         />
         <div className="text-left px-6 flex flex-col gap-[88px] ">
@@ -56,18 +61,14 @@ const DetailedPage = (props) => {
             you may also like
           </h2>
           <div className="flex flex-col gap-[56px] pb-[120px]">
-            <OfferedProduct
-              offeredImgPath={firstOfferedPath}
-              offeredTitle="xx99 mark I"
-            />
-            <OfferedProduct
-              offeredImgPath={secondOfferedPath}
-              offeredTitle="xx59"
-            />
-            <OfferedProduct
-              offeredImgPath={thirdOfferedPath}
-              offeredTitle="zx9 speaker"
-            />
+            {props.offeredSectionArr.map((item) => (
+              <OfferedProduct
+                key={item.path}
+                offeredImgPath={item.path}
+                offeredTitle={item.title}
+                offeredRoutePath={item.routePath}
+              />
+            ))}
           </div>
         </section>
         <section className="pb-[120px]">
