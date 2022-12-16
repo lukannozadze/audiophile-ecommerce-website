@@ -1,5 +1,5 @@
 import ProductsCategory from "../Main Page/ProductsCategory";
-import DropdownModal from "../UI/MainPageUI/DropdownModal";
+import DropdownModal from "../UI/DropdownModal";
 import Description from "./Description";
 import FirstModelProduct from "./FirstModelProduct";
 import Footer from "./Footer";
@@ -8,14 +8,26 @@ import NewProduct from "./NewProduct";
 import SecondModelProduct from "./SecondModelProduct";
 import ThirdModelProduct from "./ThirdModelProduct";
 import { useSelector } from "react-redux";
+import CartModal from "../UI/CartModal";
 const MainPage = () => {
-  const modalIsShown = useSelector((state) => state.dropdown.modalIsShown);
+  const DropdownModalIsShown = useSelector(
+    (state) => state.dropdown.modalIsShown
+  );
+  const CartModalIsShown = useSelector((state) => state.cart.modalIsShown);
+
   return (
-    <div className={`${modalIsShown ? "fixed" : ""}`}>
+    <div
+      className={`${DropdownModalIsShown || CartModalIsShown ? "fixed" : ""}`}
+    >
       <Header />
-      {modalIsShown && (
+      {DropdownModalIsShown && (
         <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 ">
           <DropdownModal />
+        </div>
+      )}
+      {CartModalIsShown && (
+        <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 flex justify-center mt-6">
+          <CartModal />
         </div>
       )}
       <main className=" flex flex-col items-center ">

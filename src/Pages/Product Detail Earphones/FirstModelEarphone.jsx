@@ -43,7 +43,7 @@ const offeredSectionArr = [
     routePath: "/xx9-mark-one-headphones",
   },
   { path: secondOfferedPath, title: "xx59", routePath: "/xx59-headphones" },
-  { path: thirdOfferedPath, title: "zx9 speaker", routePath: "zx9-speaker" },
+  { path: thirdOfferedPath, title: "zx9 speaker", routePath: "/zx9-speaker" },
 ];
 
 const FirstModelEarphone = () => {

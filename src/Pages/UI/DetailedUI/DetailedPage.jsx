@@ -1,5 +1,5 @@
 import ProductsCategory from "../../Main Page/ProductsCategory";
-import DropdownModal from "../MainPageUI/DropdownModal";
+import DropdownModal from "../DropdownModal";
 import Description from "../../Main Page/Description";
 import Footer from "../../Main Page/Footer";
 import Header from "../../Main Page/Header";
@@ -7,17 +7,26 @@ import { useSelector } from "react-redux";
 import DetailedProduct from "./DetailedProduct";
 import InTheBox from "./InTheBox";
 import OfferedProduct from "./OfferedProduct";
+import CartModal from "../CartModal";
 
 import { Link } from "react-router-dom";
 
 const DetailedPage = (props) => {
-  const modalIsShown = useSelector((state) => state.dropdown.modalIsShown);
+  const DropdownModalIsShown = useSelector(
+    (state) => state.dropdown.modalIsShown
+  );
+  const CartModalIsShown = useSelector((state) => state.cart.modalIsShown);
   return (
-    <div className={`${modalIsShown ? "fixed" : ""}`}>
+    <div className={`${DropdownModalIsShown ? "fixed" : ""}`}>
       <Header />
-      {modalIsShown && (
+      {DropdownModalIsShown && (
         <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 ">
           <DropdownModal />
+        </div>
+      )}
+      {CartModalIsShown && (
+        <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 flex justify-center mt-6">
+          <CartModal />
         </div>
       )}
 

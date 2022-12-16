@@ -11,6 +11,8 @@ import FirstModelSpeaker from "./Pages/Product Detail Speakers/FirstModelSpeaker
 import SecondModelSpeaker from "./Pages/Product Detail Speakers/SecondModelSpeaker";
 import FirstModelEarphone from "./Pages/Product Detail Earphones/FirstModelEarphone";
 
+import CartModal from "./Pages/UI/CartModal";
+
 function App() {
   return (
     <React.Fragment>
