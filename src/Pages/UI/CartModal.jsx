@@ -1,5 +1,9 @@
 import imgPath from "../../assets/First Model Earphone Images/first-image.png";
+import { Link } from "react-router-dom";
+import { cartActions } from "../../store/store";
+import { useDispatch } from "react-redux";
 const CartModal = () => {
+  const dispatch = useDispatch();
   return (
     <div className="font-manrope w-[327px] bg-white pb-[31px] rounded-lg absolute">
       <div className="flex justify-center">
@@ -65,9 +69,14 @@ const CartModal = () => {
                 $ 5,396
               </span>
             </div>
-            <button className="uppercase text-[13px] leading-[18px] tracking-[1px] w-[271px] h-[48px] text-white font-bold bg-[#D87D4A] hover:bg-[#FBAF85] ">
-              checkout
-            </button>
+            <Link to="/checkout">
+              <button
+                onClick={() => dispatch(cartActions.modalOff())}
+                className="uppercase text-[13px] leading-[18px] tracking-[1px] w-[271px] h-[48px] text-white font-bold bg-[#D87D4A] hover:bg-[#FBAF85] "
+              >
+                checkout
+              </button>
+            </Link>
           </ul>
         </div>
       </div>

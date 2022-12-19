@@ -15,7 +15,9 @@ const SpeakersPage = () => {
   );
   const CartModalIsShown = useSelector((state) => state.cart.modalIsShown);
   return (
-    <div className={`${DropdownModalIsShown ? "fixed" : ""}`}>
+    <div
+      className={`${DropdownModalIsShown || CartModalIsShown ? "fixed" : ""}`}
+    >
       <Header />
       {DropdownModalIsShown && (
         <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 ">
@@ -23,7 +25,7 @@ const SpeakersPage = () => {
         </div>
       )}
       {CartModalIsShown && (
-        <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 flex justify-center mt-6">
+        <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 flex justify-center pt-6">
           <CartModal />
         </div>
       )}

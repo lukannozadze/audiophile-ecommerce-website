@@ -17,7 +17,9 @@ const DetailedPage = (props) => {
   );
   const CartModalIsShown = useSelector((state) => state.cart.modalIsShown);
   return (
-    <div className={`${DropdownModalIsShown ? "fixed" : ""}`}>
+    <div
+      className={`${DropdownModalIsShown || CartModalIsShown ? "fixed" : ""}`}
+    >
       <Header />
       {DropdownModalIsShown && (
         <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 ">
@@ -25,12 +27,12 @@ const DetailedPage = (props) => {
         </div>
       )}
       {CartModalIsShown && (
-        <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 flex justify-center mt-6">
+        <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 flex justify-center pt-6">
           <CartModal />
         </div>
       )}
 
-      <main className=" flex flex-col items-center font-manrope ">
+      <div className=" flex flex-col items-center font-manrope ">
         <div className="self-start pl-[24px]  pt-[16px] pb-[24px]">
           <Link to="/">
             <span className="text-[15px] leading-[25px] opacity-50">
@@ -87,7 +89,7 @@ const DetailedPage = (props) => {
         <section className="pb-[120px]">
           <Description />
         </section>
-      </main>
+      </div>
       <footer>
         <Footer />
       </footer>

@@ -11,7 +11,7 @@ import FirstModelSpeaker from "./Pages/Product Detail Speakers/FirstModelSpeaker
 import SecondModelSpeaker from "./Pages/Product Detail Speakers/SecondModelSpeaker";
 import FirstModelEarphone from "./Pages/Product Detail Earphones/FirstModelEarphone";
 
-import CartModal from "./Pages/UI/CartModal";
+import CheckoutPage from "./Pages/Checkout/CheckoutPage";
 
 function App() {
   return (
@@ -45,6 +45,9 @@ function App() {
       </Route>
       <Route path="/yx1-wireless-earphones">
         <FirstModelEarphone />
+      </Route>
+      <Route path="/checkout">
+        <CheckoutPage />
       </Route>
     </React.Fragment>
   );
