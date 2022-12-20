@@ -6,16 +6,23 @@ import CheckoutSummary from "./CheckoutSummary";
 import { useSelector } from "react-redux";
 import DropdownModal from "../UI/DropdownModal";
 import CartModal from "../UI/CartModal";
+import CheckoutModal from "../UI/CheckoutModal";
 
 const CheckoutPage = () => {
   const DropdownModalIsShown = useSelector(
     (state) => state.dropdown.modalIsShown
   );
   const CartModalIsShown = useSelector((state) => state.cart.modalIsShown);
-
+  const CheckoutModalIsShown = useSelector(
+    (state) => state.checkout.modalIsShown
+  );
   return (
     <div
-      className={`${DropdownModalIsShown || CartModalIsShown ? "fixed" : ""}`}
+      className={`${
+        DropdownModalIsShown || CartModalIsShown || CheckoutModalIsShown
+          ? "fixed"
+          : ""
+      }`}
     >
       <div className="font-manrope h-screen">
         <Header />
@@ -27,6 +34,11 @@ const CheckoutPage = () => {
         {CartModalIsShown && (
           <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 flex justify-center pt-6">
             <CartModal />
+          </div>
+        )}
+        {CheckoutModalIsShown && (
+          <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 pt-[142px] flex justify-center">
+            <CheckoutModal />
           </div>
         )}
         <div className="bg-[#F2F2F2]  flex flex-col items-center ">

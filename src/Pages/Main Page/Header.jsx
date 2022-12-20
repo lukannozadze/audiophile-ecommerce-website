@@ -9,8 +9,8 @@ const Header = () => {
   const dispatch = useDispatch();
 
   return (
-    <header className=" w-screen h-[90px] bg-[#191919] flex justify-around items-center border-b-[1px] border-white border-opacity-10">
-      <div>
+    <header className=" w-screen h-[90px] bg-[#191919] flex justify-around items-center border-b-[1px] border-white border-opacity-10 md:justify-start">
+      <div className="md:pl-[40px]">
         <button
           onClick={() => {
             dispatch(dropdownActions.toggle());
@@ -20,12 +20,12 @@ const Header = () => {
           <img src={dropDownIconPath} alt="" />
         </button>
       </div>
-      <div>
+      <div className="md:pl-[30px]">
         <Link to="/">
           <img src={AudiophileImgPath} alt="" />
         </Link>
       </div>
-      <div>
+      <div className="md:pl-[480px]">
         <CartIcon />
       </div>
     </header>

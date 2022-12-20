@@ -10,7 +10,6 @@ import ThirdModelHeadphone from "./Pages/Product Detail Headphones/ThirdModelHea
 import FirstModelSpeaker from "./Pages/Product Detail Speakers/FirstModelSpeaker";
 import SecondModelSpeaker from "./Pages/Product Detail Speakers/SecondModelSpeaker";
 import FirstModelEarphone from "./Pages/Product Detail Earphones/FirstModelEarphone";
-
 import CheckoutPage from "./Pages/Checkout/CheckoutPage";
 
 function App() {

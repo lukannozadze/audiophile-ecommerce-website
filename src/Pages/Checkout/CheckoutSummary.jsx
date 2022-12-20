@@ -1,5 +1,8 @@
+import { useDispatch } from "react-redux";
 import imgPath from "../../assets/First Model Earphone Images/first-image.png";
+import { CheckoutActions } from "../../store/store";
 const CheckoutSummary = () => {
+  const dispatch = useDispatch();
   return (
     <div className="font-manrope w-[327px] bg-white pb-[31px] rounded-lg ">
       <div className="flex justify-center">
@@ -77,7 +80,7 @@ const CheckoutSummary = () => {
                 </span>
               </div>
             </div>
-            <button className="uppercase text-[13px] leading-[18px] tracking-[1px] w-[271px] h-[48px] text-white font-bold bg-[#D87D4A] hover:bg-[#FBAF85] ">
+            <button onClick={()=>dispatch(CheckoutActions.modalOn())} className="uppercase text-[13px] leading-[18px] tracking-[1px] w-[271px] h-[48px] text-white font-bold bg-[#D87D4A] hover:bg-[#FBAF85] ">
               continue & pay
             </button>
           </ul>
