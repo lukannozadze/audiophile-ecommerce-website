@@ -3,7 +3,7 @@ const SecondModelProduct = () => {
   return (
     <div
       id="secondModel"
-      className="w-[327px] h-[320px] rounded-lg font-manrope pl-6 pt-[101px] md:w-[689px] 1.5xl:w-[1100px] 1.5xl:pl-[95px] "
+      className="min-w-[327px] m-auto h-[320px] rounded-lg font-manrope pl-6 pt-[101px] md:w-[689px] 1.5xl:w-[1100px] 1.5xl:pl-[95px] "
     >
       <div>
         <h2 className="uppercase text-[28px] leading-[38px] tracking-[2px] font-bold text-black mb-8">

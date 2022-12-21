@@ -5,7 +5,7 @@ const FirstModelProduct = () => {
   return (
     <div
       id="firstModel"
-      className="w-[327px] h-[600px] bg-[#D87D4A] flex flex-col items-center font-manrope rounded-[8px] md:w-[689px] 1.5xl:w-[1100px] 1.5xl:flex 1.5xl:flex-row 
+      className="min-w-[327px] m-auto h-[600px] bg-[#D87D4A] flex flex-col items-center font-manrope rounded-[8px] md:w-[689px] 1.5xl:w-[1100px] 1.5xl:flex 1.5xl:flex-row 
        1.5xl:justify-start 1.5xl:pl-[140px]"
     >
       <div>

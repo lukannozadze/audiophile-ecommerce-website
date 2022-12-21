@@ -13,7 +13,7 @@ const NewProduct = () => {
           backgroundImage: `url(${newProductImgPath})`,
         }}
       >
-        <div className="hidden 1.5xl:flex 1.5xl:justify-center 1.5xl:gap-[310px] 2xl:gap-[450px]">
+        <div className=" 1.5xl:flex 1.5xl:justify-center 1.5xl:gap-[310px] 2xl:gap-[450px]">
           <div className="text-white w-[328px] m-auto font-manrope text-center pt-[180px] 1.5xl:text-left 1.5xl:w-[379px] 1.5xl:pt-[70px] ">
             <span className="text-[14px] leading-[19px] tracking-[10px] font-normal opacity-50">
               NEW PRODUCT

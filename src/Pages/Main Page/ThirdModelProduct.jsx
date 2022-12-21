@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 const ThirdModelProduct = () => {
   return (
     <div className="flex flex-col gap-6 rounded-lg md:flex-row md:gap-[11px] 1.5xl:gap-[24.5px]">
-      <div className="md:w-[339px] md:h-[320px] 1.5xl:w-[540px]">
+      <div className=" md:w-[339px] md:h-[320px] 1.5xl:w-[540px]">
         <img
-          className="md:w-[100%] md:h-[100%] 1.5xl:w-[100%] 1.5xl:h-[100%]"
+          className="w-[327px] md:w-[100%] md:h-[100%] 1.5xl:w-[100%] 1.5xl:h-[100%]"
           src={YX1EarphonesResponsive}
           alt=""
         />
       </div>
-      <div className="rounded-lg pl-6 bg-[#F1F1F1] py-[41px] md:w-[339px] md:h-[320px] md:flex md:flex-col md:justify-center 1.5xl:w-[540px] 1.5xl:pl-[95px]">
+      <div className="w-[327px] m-auto rounded-lg pl-6 bg-[#F1F1F1] py-[41px] md:w-[339px] md:h-[320px] md:flex md:flex-col md:justify-center 1.5xl:w-[540px] 1.5xl:pl-[95px]">
         <h2 className="uppercase text-[28px] leading-[38px] tracking-[2px] font-bold text-black mb-8 ">
           yx1 earphones
         </h2>
