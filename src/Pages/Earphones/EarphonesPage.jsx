@@ -6,9 +6,14 @@ import CategoryNewProduct from "../UI/CategoryUI/CategoryNewProduct";
 import DropdownModal from "../UI/DropdownModal";
 import YX1Path from "../../assets/Category Page Images/yx1-wireless-earphones.png";
 import CartModal from "../UI/CartModal";
+import YX1TabletPath from "../../assets/Category Page Images/yx1-tablet.png";
+import YX1DesktopPath from "../../assets/Category Page Images/yx1-desktop.png";
+import { useMediaQuery } from "react-responsive";
 
 import { useSelector } from "react-redux";
 const EarphonesPage = () => {
+  const isTabletOrMobile = useMediaQuery({ query: "(min-width: 768px)" });
+  const isDesktop = useMediaQuery({ query: "(min-width: 1440px)" });
   const DropdownModalIsShown = useSelector(
     (state) => state.dropdown.modalIsShown
   );
@@ -33,7 +38,13 @@ const EarphonesPage = () => {
       </div>
       <main className="flex flex-col items-center">
         <CategoryNewProduct
-          imgPath={YX1Path}
+          imgPath={
+            isDesktop
+              ? YX1DesktopPath
+              : isTabletOrMobile
+              ? YX1TabletPath
+              : YX1Path
+          }
           title="YX1 WIRELESS
 EARPHONES"
           description="Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature."
