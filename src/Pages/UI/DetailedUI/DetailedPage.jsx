@@ -27,7 +27,7 @@ const DetailedPage = (props) => {
         </div>
       )}
       {CartModalIsShown && (
-        <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 flex justify-center pt-6">
+        <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 flex justify-center pt-6 md:justify-end md:pr-[65px]">
           <CartModal />
         </div>
       )}
@@ -73,7 +73,7 @@ const DetailedPage = (props) => {
           <h2 className="uppercase font-bold text-2xl leading-[36px] tracking-[0.9] pb-[40px]">
             you may also like
           </h2>
-          <div className="flex flex-col gap-[56px]  md:flex-row md:gap-[10px] 1.5xl:gap-6 1.5xl:pb-[160px] ">
+          <div className="flex flex-col gap-[56px]  md:flex-row md:gap-[10px] 1.5xl:gap-6   pb-[120px]  1.5xl:pb-[160px]  ">
             {props.offeredSectionArr.map((item) => (
               <OfferedProduct
                 key={item.path}

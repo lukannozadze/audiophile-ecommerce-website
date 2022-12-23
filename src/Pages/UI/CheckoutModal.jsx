@@ -11,7 +11,7 @@ const CheckoutModal = () => {
     setIsClicked(!isClicked);
   };
   return (
-    <div className="font-manrope w-[327px] bg-white pb-[31px] pt-[32px] rounded-lg border-2 px-8 absolute">
+    <div className="font-manrope w-[327px] bg-white pb-[31px] pt-[32px] rounded-lg border-2 px-8 absolute ">
       <div className="w-16 h-16 rounded-full bg-[#D87D4A] flex justify-center items-center mb-[23px]">
         <img src={correctionMarkPath} alt="" />
       </div>

@@ -31,7 +31,7 @@ const EarphonesPage = () => {
         </div>
       )}
       {CartModalIsShown && (
-        <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 flex justify-center pt-6">
+        <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 flex justify-center pt-6 md:justify-end md:pr-[65px]">
           <CartModal />
         </div>
       )}

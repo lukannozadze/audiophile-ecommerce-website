@@ -5,9 +5,9 @@ import { useDispatch } from "react-redux";
 const CartModal = () => {
   const dispatch = useDispatch();
   return (
-    <div className="font-manrope w-[327px] bg-white pb-[31px] rounded-lg absolute">
+    <div className="font-manrope w-[327px] bg-white pb-[31px] rounded-lg absolute md:w-[377px]">
       <div className="flex justify-center">
-        <div className="w-[271px] ">
+        <div className="w-[271px] md:w-[313px] ">
           <div className="flex justify-between py-8">
             <span className="uppercase font-bold text-[18px] leading-[25px] tracking-[1.3px]">
               cart (3)
@@ -72,7 +72,7 @@ const CartModal = () => {
             <Link to="/checkout">
               <button
                 onClick={() => dispatch(cartActions.modalOff())}
-                className="uppercase text-[13px] leading-[18px] tracking-[1px] w-[271px] h-[48px] text-white font-bold bg-[#D87D4A] hover:bg-[#FBAF85] "
+                className="uppercase text-[13px] leading-[18px] tracking-[1px] w-[271px] h-[48px] text-white font-bold bg-[#D87D4A] hover:bg-[#FBAF85] md:w-[313px] "
               >
                 checkout
               </button>
