@@ -1,12 +1,12 @@
 const DetailedProduct = (props) => {
   return (
-    <div className="w-[327px] text-left font-manrope flex flex-col gap-8 mb-[88px]">
+    <div className="w-[327px] text-left font-manrope flex flex-col gap-8 mb-[88px] md:flex-row md:w-[689px] md:gap-[69px] md:items-center 1.5xl:w-[1100px] 1.5xl:gap-[125px]  ">
       <div>
         <img src={props.productImgPath} alt="" />
       </div>
-      <div>
+      <div className="md:w-[339px] 1.5xl:w-[445px]">
         <span className={props.newProductClass}>{props.newProductText}</span>
-        <h2 className="uppercase font-bold text-[28px] leading-[38px] tracking-[1px] py-[24px]">
+        <h2 className="uppercase font-bold text-[28px] leading-[38px] tracking-[1px] py-[24px] 1.5xl:text-[40px] 1.5xl:leading-[44px]">
           {props.productTitle}
         </h2>
         <p className="font-medium text-[15px] leading-[25px] opacity-90 pb-[24px]">

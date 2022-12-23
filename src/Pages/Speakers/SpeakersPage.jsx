@@ -24,7 +24,9 @@ const SpeakersPage = () => {
   const CartModalIsShown = useSelector((state) => state.cart.modalIsShown);
   return (
     <div
-      className={`${DropdownModalIsShown || CartModalIsShown ? "fixed" : ""}`}
+      className={`${
+        DropdownModalIsShown || CartModalIsShown ? "fixed" : "overflow-x-hidden"
+      }`}
     >
       <Header />
       {DropdownModalIsShown && (

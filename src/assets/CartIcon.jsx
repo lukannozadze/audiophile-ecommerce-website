@@ -9,11 +9,13 @@ const CartIcon = () => {
         dispatch(cartActions.toggle());
         dispatch(dropdownActions.modalOff());
       }}
+      id="cart-icon"
       width="23"
       height="20"
       viewBox="0 0 23 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="cursor-pointer"
     >
       <g id="Combined Shape 2">
         <path

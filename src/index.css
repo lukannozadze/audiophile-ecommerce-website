@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+#cart-icon:hover path {
+  fill: #d87d4a;
+}
+
 #facebook:hover path {
   fill: #d87d4a;
 }
@@ -75,4 +79,9 @@
     background-position: bottom -319px left 18px;
     background-size: 650px;
   }
+}
+html,
+body {
+  overflow-y: auto;
+  overflow-x: hidden;
 }

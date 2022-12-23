@@ -29,7 +29,7 @@ const ProductsCategory = () => {
   ];
   return (
     <section>
-      <ul className="flex flex-col gap-[62px] items-center mt-[40px] font-manrope md:flex-row md:gap-[10px] 2xl:gap-[30px] ">
+      <ul className="flex flex-col gap-[62px] items-center mt-[40px] font-manrope md:flex-row md:gap-[10px] 1.5xl:gap-[30px] ">
         {iconsArr.map((item) => (
           <li key={item.id}>
             <div className="w-[327px] h-[165px] bg-[#F1F1F1]  flex flex-col items-center rounded-lg md:w-[223px] 1.5xl:w-[350px]">

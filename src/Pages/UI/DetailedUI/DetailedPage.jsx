@@ -33,7 +33,7 @@ const DetailedPage = (props) => {
       )}
 
       <div className=" flex flex-col items-center font-manrope ">
-        <div className="self-start pl-[24px]  pt-[16px] pb-[24px]">
+        <div className="self-start pl-[24px]  pt-[16px] pb-[24px] md:pl-[40px] 1.5xl:pl-[205px] 2xl:pl-[220px] xxl:pl-[410px]">
           <Link to="/">
             <span className="text-[15px] leading-[25px] opacity-50">
               Go Back
@@ -48,12 +48,12 @@ const DetailedPage = (props) => {
           newProductClass={props.newProductClass}
           price={props.price}
         />
-        <div className="text-left px-6 flex flex-col gap-[88px] ">
+        <div className="text-left px-6 flex flex-col gap-[88px]  md:w-[710px] 1.5xl:w-[1100px] 1.5xl:flex-row 1.5xl:px-[0] 1.5xl:gap-[125px] 1.5xl:pb-[160px]  ">
           <div>
             <h2 className="uppercase font-bold text-2xl leading-9 tracking-[0.9px] mb-[24px]">
               features
             </h2>
-            <p className="font-medium text-[15px] leading-[25px] opacity-50 ">
+            <p className="font-medium text-[15px] leading-[25px] opacity-50 1.5xl:w-[635px]">
               {props.features}
             </p>
           </div>
@@ -62,16 +62,18 @@ const DetailedPage = (props) => {
             boxItemsNamesArr={props.boxItemsNamesArr}
           />
         </div>
-        <section className="flex flex-col gap-5 pb-[120px]">
-          <img src={props.firstPath} alt="" />
-          <img src={props.secondPath} alt="" />
+        <section className="flex flex-col gap-5 pb-[120px] md:flex-row 1.5xl:pb-[160px] 1.5xl:gap-[30px]">
+          <div className="flex flex-col gap-5 1.5xl:gap-[32px]">
+            <img src={props.firstPath} alt="" />
+            <img src={props.secondPath} alt="" />
+          </div>
           <img src={props.thirdPath} alt="" />
         </section>
         <section className="text-center">
           <h2 className="uppercase font-bold text-2xl leading-[36px] tracking-[0.9] pb-[40px]">
             you may also like
           </h2>
-          <div className="flex flex-col gap-[56px] pb-[120px]">
+          <div className="flex flex-col gap-[56px]  md:flex-row md:gap-[10px] 1.5xl:gap-6 1.5xl:pb-[160px] ">
             {props.offeredSectionArr.map((item) => (
               <OfferedProduct
                 key={item.path}
