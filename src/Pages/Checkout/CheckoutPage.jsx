@@ -42,14 +42,14 @@ const CheckoutPage = () => {
           </div>
         )}
         <div className="bg-[#F2F2F2]  flex flex-col items-center ">
-          <div className="self-start pl-[24px]  pt-[16px] pb-[24px]">
+          <div className="self-start pl-[24px]  pt-[16px] pb-[24px] md:pl-[40px]">
             <Link to="/">
               <span className="text-[15px] leading-[25px] opacity-50">
                 Go Back
               </span>
             </Link>
           </div>
-          <div className="mb-8 flex flex-col gap-6 ">
+          <div className="mb-8 flex flex-col gap-6 md:mb-[116px] 1.5xl:flex-row 1.5xl:gap-[30px] ">
             <CheckoutForm />
             <CheckoutSummary />
           </div>

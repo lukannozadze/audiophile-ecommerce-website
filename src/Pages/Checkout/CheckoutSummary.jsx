@@ -4,9 +4,9 @@ import { CheckoutActions } from "../../store/store";
 const CheckoutSummary = () => {
   const dispatch = useDispatch();
   return (
-    <div className="font-manrope w-[327px] bg-white pb-[31px] rounded-lg ">
+    <div className="font-manrope w-[327px] bg-white pb-[31px] rounded-lg md:w-[698px] 1.5xl:w-[350px] 1.5xl:h-[612px] ">
       <div className="flex justify-center">
-        <div className="w-[271px] ">
+        <div className="w-[271px] md:w-[632px] 1.5xl:w-[284px] ">
           <div className="my-8">
             <span className="uppercase font-bold text-[18px] leading-[25px] tracking-[1.3px]">
               summary
@@ -80,7 +80,10 @@ const CheckoutSummary = () => {
                 </span>
               </div>
             </div>
-            <button onClick={()=>dispatch(CheckoutActions.modalOn())} className="uppercase text-[13px] leading-[18px] tracking-[1px] w-[271px] h-[48px] text-white font-bold bg-[#D87D4A] hover:bg-[#FBAF85] ">
+            <button
+              onClick={() => dispatch(CheckoutActions.modalOn())}
+              className="uppercase text-[13px] leading-[18px] tracking-[1px] w-[271px] h-[48px] text-white font-bold bg-[#D87D4A] hover:bg-[#FBAF85] md:w-[632px] 1.5xl:w-[284px] "
+            >
               continue & pay
             </button>
           </ul>
