@@ -75,6 +75,29 @@ const productsSlice = createSlice({
       state.productsArr = cartItemsArr;
       state.totalPrice = 0;
     },
+
+    incrementQuantity(state, action) {
+      const cartItemsArr = state.productsArr.slice();
+      const newItemId = action.payload;
+      cartItemsArr.forEach((item) => {
+        if (item.id === newItemId) {
+          item.quantity = item.quantity + 1;
+          state.totalPrice = state.totalPrice + item.price;
+        }
+      });
+      state.productsArr = cartItemsArr;
+    },
+    decrementQuantity(state, action) {
+      const cartItemsArr = state.productsArr.slice();
+      const newItemId = action.payload;
+      cartItemsArr.forEach((item) => {
+        if (item.id === newItemId) {
+          item.quantity = item.quantity - 1;
+          state.totalPrice = state.totalPrice - item.price;
+        }
+      });
+      state.productsArr = cartItemsArr;
+    },
   },
 });
 export default productsSlice;

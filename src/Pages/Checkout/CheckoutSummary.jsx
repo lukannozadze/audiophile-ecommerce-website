@@ -1,7 +1,11 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import imgPath from "../../assets/First Model Earphone Images/first-image.png";
 import { CheckoutActions } from "../../store/store";
+
 const CheckoutSummary = () => {
+  const productsArr = useSelector((state) => state.products.productsArr);
+  const totalPrice = useSelector((state) => state.products.totalPrice);
+  const cartItems = productsArr.filter((item) => item.quantity > 0);
   const dispatch = useDispatch();
   return (
     <div className="font-manrope w-[327px] bg-white pb-[31px] rounded-lg md:w-[698px] 1.5xl:w-[350px] 1.5xl:h-[612px] ">
@@ -14,45 +18,41 @@ const CheckoutSummary = () => {
           </div>
 
           <ul className="flex flex-col gap-6">
-            <li className="flex justify-between items-center  ">
-              <div className="flex gap-4 items-center ">
-                <img src={imgPath} alt="" className="w-[64px] h-[64px]" />
-                <div className="h-[50px]">
-                  <h3 className="uppercase font-bold text-[15px] leading-[25px]">
-                    xx99 mk II
-                  </h3>
-                  <span className="text-[14px] leading-[25px] font-bold">
-                    $ 2,999
+            {cartItems.map((item) => {
+              return (
+                <li
+                  key={item.id}
+                  className="flex justify-between items-center  "
+                >
+                  <div className="flex gap-4 items-center ">
+                    <img
+                      src={item.imgPath}
+                      alt=""
+                      className="w-[64px] h-[64px]"
+                    />
+                    <div className="h-[50px]">
+                      <h3 className="uppercase font-bold text-[15px] leading-[25px]">
+                        {item.productShortName}
+                      </h3>
+                      <span className="text-[14px] leading-[25px] font-bold">
+                        {`$ ${item.price}`}
+                      </span>
+                    </div>
+                  </div>
+                  <span className="font-bold text-[15px] leading-[25px] opacity-50">
+                    {`${item.quantity}x`}
                   </span>
-                </div>
-              </div>
-              <span className="font-bold text-[15px] leading-[25px] opacity-50">
-                2x
-              </span>
-            </li>
-            <li className="flex justify-between items-center  ">
-              <div className="flex gap-4 items-center ">
-                <img src={imgPath} alt="" className="w-[64px] h-[64px]" />
-                <div className="h-[50px]">
-                  <h3 className="uppercase font-bold text-[15px] leading-[25px]">
-                    xx99 mk II
-                  </h3>
-                  <span className="text-[14px] leading-[25px] font-bold">
-                    $ 2,999
-                  </span>
-                </div>
-              </div>
-              <span className="font-bold text-[15px] leading-[25px] opacity-50">
-                1x
-              </span>
-            </li>
+                </li>
+              );
+            })}
+
             <div className="flex flex-col gap-2">
               <div className="flex justify-between">
                 <span className="uppercase font-medium text-[15px] leading-[25px] opacity-50">
                   total
                 </span>
                 <span className="font-bold text-[18px] leading-[25px]">
-                  $ 5,396
+                  {`$ ${new Intl.NumberFormat("en-US").format(totalPrice)}`}
                 </span>
               </div>
               <div className="flex justify-between ">

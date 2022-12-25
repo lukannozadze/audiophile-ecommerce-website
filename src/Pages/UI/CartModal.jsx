@@ -7,7 +7,6 @@ const CartModal = () => {
   const productsArr = useSelector((state) => state.products.productsArr);
   const totalPrice = useSelector((state) => state.products.totalPrice);
   const cartItems = productsArr.filter((item) => item.quantity > 0);
-
   const dispatch = useDispatch();
   return (
     <div className="font-manrope w-[327px] bg-white pb-[31px] rounded-lg absolute md:w-[377px]">
@@ -40,18 +39,28 @@ const CartModal = () => {
                       {item.productShortName}
                     </h3>
                     <span className="text-[14px] leading-[25px] font-bold">
-                      {`$${item.price}`}
+                      {`$ ${item.price}`}
                     </span>
                   </div>
                 </div>
                 <div className="w-[96px] h-[32px] bg-[#F1F1F1] flex gap-5 items-center justify-center">
-                  <button className="font-bold text-[15px] leading-[18px] opacity-25 ">
+                  <button
+                    onClick={() => {
+                      dispatch(productsActions.decrementQuantity(item.id));
+                    }}
+                    className="font-bold text-[15px] leading-[18px] opacity-25 "
+                  >
                     -
                   </button>
                   <span className="font-bold text-[15px] leading-[18px] ">
                     {item.quantity}
                   </span>
-                  <button className="font-bold text-[15px] leading-[18px] opacity-25">
+                  <button
+                    onClick={() => {
+                      dispatch(productsActions.incrementQuantity(item.id));
+                    }}
+                    className="font-bold text-[15px] leading-[18px] opacity-25"
+                  >
                     +
                   </button>
                 </div>
