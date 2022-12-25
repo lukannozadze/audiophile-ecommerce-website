@@ -37,7 +37,7 @@ const DetailedProduct = (props) => {
           {props.productDescription}
         </p>
         <span className="font-bold text-lg tracking-[1.3px] ">
-          {`$${props.price}`}
+          {`$ ${props.price}`}
         </span>
         <div className="flex gap-4 mt-[31px]">
           <div className="w-[120px] h-[48px] bg-[#F1F1F1] flex gap-5 items-center justify-center">

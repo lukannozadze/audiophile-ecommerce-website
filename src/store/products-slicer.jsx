@@ -14,14 +14,14 @@ const productsSlice = createSlice({
         id: "h1",
         productShortName: "XX99 MK II",
         imgPath: h1ImgPath,
-        price: 2.999,
+        price: 2999,
         quantity: 0,
       },
       {
         id: "h2",
         productShortName: "XX99 MK I",
         imgPath: h2ImgPath,
-        price: 1.75,
+        price: 1750,
         quantity: 0,
       },
       {
@@ -35,14 +35,14 @@ const productsSlice = createSlice({
         id: "s1",
         productShortName: "ZX9",
         imgPath: s1ImgPath,
-        price: 4.5,
+        price: 4500,
         quantity: 0,
       },
       {
         id: "s2",
         productShortName: "ZX7",
         imgPath: s2ImgPath,
-        price: 3.5,
+        price: 3500,
         quantity: 0,
       },
       {
@@ -62,11 +62,18 @@ const productsSlice = createSlice({
       cartItemsArr.forEach((item) => {
         if (item.id === newItem.id) {
           item.quantity = item.quantity + newItem.quantity;
+          state.totalPrice = state.totalPrice + item.quantity * item.price;
         }
       });
-      console.log(cartItemsArr);
       state.productsArr = cartItemsArr;
-      console.log(state.productsArr);
+    },
+    deleteAllItems(state) {
+      const cartItemsArr = state.productsArr.slice();
+      cartItemsArr.forEach((item) => {
+        item.quantity = 0;
+      });
+      state.productsArr = cartItemsArr;
+      state.totalPrice = 0;
     },
   },
 });

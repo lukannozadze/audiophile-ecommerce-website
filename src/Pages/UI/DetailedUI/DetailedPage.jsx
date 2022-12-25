@@ -27,7 +27,7 @@ const DetailedPage = (props) => {
         </div>
       )}
       {CartModalIsShown && (
-        <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 flex justify-center pt-6 md:justify-end md:pr-[65px]  1.5xl:pr-[140px] xxl:pr-[390px]">
+        <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 flex justify-center pt-6 md:justify-end md:pr-[65px] xl:pr-[190px] 1.5xl:pr-[140px] xxl:pr-[390px]">
           <CartModal />
         </div>
       )}

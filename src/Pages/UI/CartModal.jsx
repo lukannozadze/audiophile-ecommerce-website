@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import { cartActions } from "../../store/store";
 import { useDispatch, useSelector } from "react-redux";
+import { productsActions } from "../../store/store";
 
 const CartModal = () => {
   const productsArr = useSelector((state) => state.products.productsArr);
+  const totalPrice = useSelector((state) => state.products.totalPrice);
   const cartItems = productsArr.filter((item) => item.quantity > 0);
 
   const dispatch = useDispatch();
@@ -15,7 +17,12 @@ const CartModal = () => {
             <span className="uppercase font-bold text-[18px] leading-[25px] tracking-[1.3px]">
               cart ({cartItems.length})
             </span>
-            <span className="font-bold text-[15px] leading-[25px] opacity-50 underline">
+            <span
+              onClick={() => {
+                dispatch(productsActions.deleteAllItems());
+              }}
+              className="font-bold text-[15px] leading-[25px] opacity-50 underline cursor-pointer"
+            >
               Remove all
             </span>
           </div>
@@ -52,11 +59,11 @@ const CartModal = () => {
             ))}
 
             <div className="flex justify-between pt-2 pb-6">
-              <span className="uppercase font-medium text-[15px] leading-[25px] opacity-50">
+              <span className="uppercase font-medium text-[15px] leading-[25px] opacity-50 self-center">
                 total
               </span>
               <span className="font-bold text-[18px] leading-[25px]">
-                $ 5,396
+                {`$ ${new Intl.NumberFormat("en-US").format(totalPrice)}`}
               </span>
             </div>
             <Link to="/checkout">
