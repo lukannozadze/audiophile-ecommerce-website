@@ -98,6 +98,7 @@ const FirstModelEarphone = () => {
       secondPath={isDesktop ? secondImgDesktop : secondImgPath}
       thirdPath={isDesktop ? thirdImgDesktop : thirdImgPath}
       offeredSectionArr={offeredSectionArr}
+      productId="e1"
     />
   );
 };

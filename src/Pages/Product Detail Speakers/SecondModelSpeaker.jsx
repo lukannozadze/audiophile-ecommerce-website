@@ -93,6 +93,7 @@ const SecondModelSpeaker = () => {
       secondPath={isDesktop ? secondImgDesktop : secondImgPath}
       thirdPath={isDesktop ? thirdImgDesktop : thirdImgPath}
       offeredSectionArr={offeredSectionArr}
+      productId="s2"
     />
   );
 };

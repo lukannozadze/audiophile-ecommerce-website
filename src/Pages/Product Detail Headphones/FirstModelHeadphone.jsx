@@ -101,6 +101,7 @@ const FirstModelHeadphone = () => {
       secondPath={isDesktop ? secondImgDesktop : secondImgPath}
       thirdPath={isDesktop ? thirdImgDesktop : thirdImgPath}
       offeredSectionArr={offeredSectionArr}
+      productId="h1"
     />
   );
 };
