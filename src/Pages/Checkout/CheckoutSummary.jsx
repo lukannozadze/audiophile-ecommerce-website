@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from "react-redux";
-import imgPath from "../../assets/First Model Earphone Images/first-image.png";
 import { CheckoutActions } from "../../store/store";
 
 const CheckoutSummary = () => {
@@ -68,7 +67,9 @@ const CheckoutSummary = () => {
                   var (included)
                 </span>
                 <span className="font-bold text-[18px] leading-[25px]">
-                  $ 1,079
+                  {`$ ${new Intl.NumberFormat("en-US").format(
+                    Math.round(totalPrice / 5)
+                  )}`}
                 </span>
               </div>
               <div className="flex justify-between mt-4">
@@ -76,7 +77,9 @@ const CheckoutSummary = () => {
                   grand total
                 </span>
                 <span className="font-bold text-[18px] leading-[25px] text-[#D87D4A]">
-                  $ 5,446
+                  {`$ ${new Intl.NumberFormat("en-US").format(
+                    Math.round(totalPrice + 50 + totalPrice / 5)
+                  )}`}
                 </span>
               </div>
             </div>
