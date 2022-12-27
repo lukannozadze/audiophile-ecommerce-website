@@ -43,7 +43,7 @@ const DetailedProduct = (props) => {
           <div className="w-[120px] h-[48px] bg-[#F1F1F1] flex gap-5 items-center justify-center">
             <button
               onClick={handleDecrement}
-              className="font-bold text-[15px] leading-[18px] opacity-25 "
+              className="font-bold text-[15px] leading-[18px] opacity-25 hover:text-[#D87D4A] "
             >
               -
             </button>
@@ -52,7 +52,7 @@ const DetailedProduct = (props) => {
             </span>
             <button
               onClick={handleIncrement}
-              className="font-bold text-[15px] leading-[18px] opacity-25"
+              className="font-bold text-[15px] leading-[18px] opacity-25 hover:text-[#D87D4A]"
             >
               +
             </button>

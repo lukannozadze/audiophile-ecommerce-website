@@ -32,7 +32,7 @@ const CheckoutForm = () => {
                   Name
                 </label>
                 <input
-                  className="w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-none md:w-[309px]"
+                  className="w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-[#D87D4A] md:w-[309px]"
                   type="text"
                   name="name"
                   placeholder="Alexei Ward"
@@ -50,7 +50,7 @@ const CheckoutForm = () => {
                   type="text"
                   name="email"
                   placeholder="alexei@mail.com"
-                  className="w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-none md:w-[309px]"
+                  className="w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-[#D87D4A] md:w-[309px]"
                 />
               </div>
             </div>
@@ -65,7 +65,7 @@ const CheckoutForm = () => {
                 type="text"
                 name="phone"
                 placeholder="+1 202-555-0136"
-                className="w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-none md:w-[309px]"
+                className="w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-[#D87D4A] md:w-[309px]"
               />
             </div>
           </div>
@@ -87,7 +87,7 @@ const CheckoutForm = () => {
                 type="text"
                 name="address"
                 placeholder="1137 Williams Avenue"
-                className="w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-none md:w-[641px]"
+                className="w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-[#D87D4A] md:w-[641px]"
               />
             </div>
             <div className="flex flex-col gap-6 md:flex-row md:justify-between">
@@ -102,7 +102,7 @@ const CheckoutForm = () => {
                   type="text"
                   name="zipCode"
                   placeholder="10001"
-                  className="w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-none md:w-[309px]"
+                  className="w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-[#D87D4A] md:w-[309px]"
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -116,7 +116,7 @@ const CheckoutForm = () => {
                   type="text"
                   name="city"
                   placeholder="New York"
-                  className="w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-none md:w-[309px]"
+                  className="w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-[#D87D4A] md:w-[309px]"
                 />
               </div>
             </div>
@@ -131,7 +131,7 @@ const CheckoutForm = () => {
                 type="text"
                 name="country"
                 placeholder="United States"
-                className="w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-none md:w-[309px]"
+                className="w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-[#D87D4A] md:w-[309px]"
               />
             </div>
           </div>
@@ -149,7 +149,7 @@ const CheckoutForm = () => {
               <div
                 onClick={handleChange}
                 id="e-money"
-                className={`w-[280px] border-[1px] py-[19px] pl-4 border-[#CFCFCF] rounded-md flex items-center gap-4 mb-4 md:w-[309px] 
+                className={`w-[280px] border-[1px] py-[19px] pl-4 border-[#CFCFCF] cursor-pointer rounded-md flex items-center gap-4 mb-4 md:w-[309px] hover:border-[#D87D4A]
                 ${emoneyIsChecked ? "border-[#D87D4A]" : ""} `}
               >
                 <div
@@ -174,7 +174,7 @@ const CheckoutForm = () => {
               <div
                 onClick={handleChange}
                 id="cash"
-                className={`w-[280px] border-[1px] py-[17px] pl-4 border-[#CFCFCF] rounded-md flex items-center gap-4 mb-8 md:w-[309px] ${
+                className={`w-[280px] border-[1px] py-[17px] cursor-pointer pl-4 border-[#CFCFCF] rounded-md flex items-center gap-4 mb-8 md:w-[309px] hover:border-[#D87D4A] ${
                   cashIsChecked ? "border-[#D87D4A]" : ""
                 }`}
               >
@@ -211,7 +211,7 @@ const CheckoutForm = () => {
                 type="text"
                 name="emoney-number"
                 placeholder="238521993"
-                className="w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-none  md:w-[309px]"
+                className="w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-[#D87D4A]  md:w-[309px]"
               />
             </div>
             <div className="flex flex-col gap-2">
@@ -225,7 +225,7 @@ const CheckoutForm = () => {
                 type="text"
                 name="emoney-pin"
                 placeholder="6891"
-                className="w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-none md:w-[309px]"
+                className="w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-[#D87D4A] md:w-[309px]"
               />
             </div>
           </div>

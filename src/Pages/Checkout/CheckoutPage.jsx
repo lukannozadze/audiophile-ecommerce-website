@@ -32,7 +32,7 @@ const CheckoutPage = () => {
           </div>
         )}
         {CartModalIsShown && (
-          <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 flex justify-center pt-6 md:justify-end md:pr-[65px]">
+          <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 flex justify-center pt-6 md:justify-end  md:pr-[65px] xl:pr-[190px] 1.5xl:pr-[140px] xxl:pr-[390px]">
             <CartModal />
           </div>
         )}
@@ -42,7 +42,7 @@ const CheckoutPage = () => {
           </div>
         )}
         <div className="bg-[#F2F2F2]  flex flex-col items-center ">
-          <div className="self-start pl-[24px]  pt-[16px] pb-[24px] md:pl-[40px]">
+          <div className="self-start pl-[24px]  pt-[16px] pb-[24px] md:pl-[40px] 1.5xl:pl-[205px] 2xl:pl-[220px] xxl:pl-[410px]">
             <Link to="/">
               <span className="text-[15px] leading-[25px] opacity-50">
                 Go Back

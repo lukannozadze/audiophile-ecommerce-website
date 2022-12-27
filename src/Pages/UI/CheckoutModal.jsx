@@ -1,12 +1,16 @@
 import correctionMarkPath from "../../assets/correction-mark.png";
-import testImgPath from "../../assets/First Model Headphone Images/first-image.png";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { CheckoutActions } from "../../store/store";
 import { Link } from "react-router-dom";
+import { productsActions } from "../../store/store";
 const CheckoutModal = () => {
   const dispatch = useDispatch();
   const [isClicked, setIsClicked] = useState(false);
+  const productsArr = useSelector((state) => state.products.productsArr);
+  const totalPrice = useSelector((state) => state.products.totalPrice);
+  const cartItems = productsArr.filter((item) => item.quantity > 0);
+
   const handleClick = () => {
     setIsClicked(!isClicked);
   };
@@ -26,18 +30,22 @@ const CheckoutModal = () => {
           <ul>
             <li className="flex justify-between items-center  ">
               <div className="flex gap-4 items-center ">
-                <img src={testImgPath} alt="" className="w-[50px] h-[50px]" />
+                <img
+                  src={cartItems[0].imgPath}
+                  alt=""
+                  className="w-[50px] h-[50px]"
+                />
                 <div className="h-[50px]">
                   <h3 className="uppercase font-bold text-[15px] leading-[25px]">
-                    xx99 mk II
+                    {cartItems[0].productShortName}
                   </h3>
                   <span className="text-[14px] leading-[25px] font-bold">
-                    $ 2,999
+                    {`$ ${cartItems[0].price}`}
                   </span>
                 </div>
               </div>
               <span className="font-bold text-[15px] leading-[25px] opacity-50">
-                1x
+                {`${cartItems[0].quantity}x`}
               </span>
             </li>
             <div>
@@ -47,32 +55,39 @@ const CheckoutModal = () => {
                   className="text-center border-t-[1px] mt-[12px] pt-[12px]"
                 >
                   <span className="font-bold text-[12px] leading-[16px] opacity-50">
-                    and 1 other item(s)
+                    and {cartItems.slice(1).length} other item(s)
                   </span>
                 </div>
               )}
               {isClicked && (
                 <div>
-                  <li className="flex justify-between items-center pt-[12px]">
-                    <div className="flex gap-4 items-center ">
-                      <img
-                        src={testImgPath}
-                        alt=""
-                        className="w-[50px] h-[50px]"
-                      />
-                      <div className="h-[50px]">
-                        <h3 className="uppercase font-bold text-[15px] leading-[25px]">
-                          xx99 mk II
-                        </h3>
-                        <span className="text-[14px] leading-[25px] font-bold">
-                          $ 2,999
+                  {cartItems.slice(1).map((item) => {
+                    return (
+                      <li
+                        key={item.id}
+                        className="flex justify-between items-center pt-[12px]"
+                      >
+                        <div className="flex gap-4 items-center ">
+                          <img
+                            src={item.imgPath}
+                            alt=""
+                            className="w-[50px] h-[50px]"
+                          />
+                          <div className="h-[50px]">
+                            <h3 className="uppercase font-bold text-[15px] leading-[25px]">
+                              {item.productShortName}
+                            </h3>
+                            <span className="text-[14px] leading-[25px] font-bold">
+                              {`$ ${item.price}`}
+                            </span>
+                          </div>
+                        </div>
+                        <span className="font-bold text-[15px] leading-[25px] opacity-50">
+                          {`${item.quantity}x`}
                         </span>
-                      </div>
-                    </div>
-                    <span className="font-bold text-[15px] leading-[25px] opacity-50">
-                      1x
-                    </span>
-                  </li>
+                      </li>
+                    );
+                  })}
                   <div
                     onClick={handleClick}
                     className="text-center border-t-[1px] mt-[12px] pt-[12px]"
@@ -92,14 +107,20 @@ const CheckoutModal = () => {
               grand total
             </span>
             <span className="font-bold text-[18px] leading-[25px]">
-              $ 5,546
+              {`$ ${new Intl.NumberFormat("en-US").format(
+                Math.round(totalPrice + 50 + totalPrice / 5)
+              )}`}
             </span>
           </div>
         </div>
       </div>
       <Link to="/">
         <button
-          onClick={() => dispatch(CheckoutActions.modalOff())}
+          onClick={() => {
+            dispatch(productsActions.deleteAllItems());
+            dispatch(CheckoutActions.modalOff());
+            localStorage.clear();
+          }}
           className="uppercase text-[13px] leading-[18px] tracking-[1px] w-[259px] h-[48px] text-white font-bold bg-[#D87D4A] hover:bg-[#FBAF85] md:w-[444px] md:mt-[46px] "
         >
           back to home

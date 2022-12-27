@@ -5,56 +5,63 @@ import h3ImgPath from "../assets/Third Model Headphone Images/xx59.png";
 import s1ImgPath from "../assets/First Model Speaker Images/zx9.png";
 import s2ImgPath from "../assets/Second Model Speaker Images/zx7.png";
 import e1ImgPath from "../assets/First Model Earphone Images/yx1.png";
+const initialState =
+  localStorage.getItem("cartItems") !== null
+    ? {
+        productsArr: JSON.parse(localStorage.getItem("cartItems")),
+        totalPrice: parseInt(localStorage.getItem("totalPrice")),
+      }
+    : {
+        productsArr: [
+          {
+            id: "h1",
+            productShortName: "XX99 MK II",
+            imgPath: h1ImgPath,
+            price: 2999,
+            quantity: 0,
+          },
+          {
+            id: "h2",
+            productShortName: "XX99 MK I",
+            imgPath: h2ImgPath,
+            price: 1750,
+            quantity: 0,
+          },
+          {
+            id: "h3",
+            productShortName: "XX59",
+            imgPath: h3ImgPath,
+            price: 899,
+            quantity: 0,
+          },
+          {
+            id: "s1",
+            productShortName: "ZX9",
+            imgPath: s1ImgPath,
+            price: 4500,
+            quantity: 0,
+          },
+          {
+            id: "s2",
+            productShortName: "ZX7",
+            imgPath: s2ImgPath,
+            price: 3500,
+            quantity: 0,
+          },
+          {
+            id: "e1",
+            productShortName: "YX1",
+            imgPath: e1ImgPath,
 
+            price: 599,
+            quantity: 0,
+          },
+        ],
+        totalPrice: 0,
+      };
 const productsSlice = createSlice({
   name: "products",
-  initialState: {
-    productsArr: [
-      {
-        id: "h1",
-        productShortName: "XX99 MK II",
-        imgPath: h1ImgPath,
-        price: 2999,
-        quantity: 0,
-      },
-      {
-        id: "h2",
-        productShortName: "XX99 MK I",
-        imgPath: h2ImgPath,
-        price: 1750,
-        quantity: 0,
-      },
-      {
-        id: "h3",
-        productShortName: "XX59",
-        imgPath: h3ImgPath,
-        price: 899,
-        quantity: 0,
-      },
-      {
-        id: "s1",
-        productShortName: "ZX9",
-        imgPath: s1ImgPath,
-        price: 4500,
-        quantity: 0,
-      },
-      {
-        id: "s2",
-        productShortName: "ZX7",
-        imgPath: s2ImgPath,
-        price: 3500,
-        quantity: 0,
-      },
-      {
-        id: "e1",
-        productShortName: "YX1",
-        imgPath: e1ImgPath,
-        price: 599,
-        quantity: 0,
-      },
-    ],
-    totalPrice: 0,
-  },
+  initialState,
   reducers: {
     addItemToCart(state, action) {
       const cartItemsArr = state.productsArr.slice();
@@ -66,6 +73,9 @@ const productsSlice = createSlice({
         }
       });
       state.productsArr = cartItemsArr;
+      localStorage.setItem("totalPrice", state.totalPrice);
+      localStorage.setItem("cartItems", JSON.stringify(cartItemsArr));
+      console.log(state.totalPrice);
     },
     deleteAllItems(state) {
       const cartItemsArr = state.productsArr.slice();
@@ -74,6 +84,7 @@ const productsSlice = createSlice({
       });
       state.productsArr = cartItemsArr;
       state.totalPrice = 0;
+      localStorage.removeItem("cartItems");
     },
 
     incrementQuantity(state, action) {
@@ -86,6 +97,8 @@ const productsSlice = createSlice({
         }
       });
       state.productsArr = cartItemsArr;
+      localStorage.setItem("totalPrice", state.totalPrice);
+      localStorage.setItem("cartItems", JSON.stringify(cartItemsArr));
     },
     decrementQuantity(state, action) {
       const cartItemsArr = state.productsArr.slice();
@@ -97,6 +110,8 @@ const productsSlice = createSlice({
         }
       });
       state.productsArr = cartItemsArr;
+      localStorage.setItem("totalPrice", state.totalPrice);
+      localStorage.setItem("cartItems", JSON.stringify(cartItemsArr));
     },
   },
 });

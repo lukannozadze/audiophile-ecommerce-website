@@ -7,7 +7,7 @@ const CheckoutSummary = () => {
   const cartItems = productsArr.filter((item) => item.quantity > 0);
   const dispatch = useDispatch();
   return (
-    <div className="font-manrope w-[327px] bg-white pb-[31px] rounded-lg md:w-[698px] 1.5xl:w-[350px] 1.5xl:h-[612px] ">
+    <div className="font-manrope w-[327px] bg-white pb-[31px] rounded-lg md:w-[698px] 1.5xl:w-[350px]  h-fit  ">
       <div className="flex justify-center">
         <div className="w-[271px] md:w-[632px] 1.5xl:w-[284px] ">
           <div className="my-8">
@@ -16,18 +16,18 @@ const CheckoutSummary = () => {
             </span>
           </div>
 
-          <ul className="flex flex-col gap-6">
+          <ul className="flex flex-col gap-6 ">
             {cartItems.map((item) => {
               return (
                 <li
                   key={item.id}
                   className="flex justify-between items-center  "
                 >
-                  <div className="flex gap-4 items-center ">
+                  <div className="flex gap-4 items-center  ">
                     <img
                       src={item.imgPath}
                       alt=""
-                      className="w-[64px] h-[64px]"
+                      className="w-[64px] h-[64px] rounded-md"
                     />
                     <div className="h-[50px]">
                       <h3 className="uppercase font-bold text-[15px] leading-[25px]">

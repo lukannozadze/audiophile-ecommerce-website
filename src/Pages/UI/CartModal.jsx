@@ -8,6 +8,8 @@ const CartModal = () => {
   const totalPrice = useSelector((state) => state.products.totalPrice);
   const cartItems = productsArr.filter((item) => item.quantity > 0);
   const dispatch = useDispatch();
+  console.log(totalPrice);
+  console.log(parseInt(localStorage.getItem("totalPrice")));
   return (
     <div className="font-manrope w-[327px] bg-white pb-[31px] rounded-lg absolute md:w-[377px]">
       <div className="flex justify-center">
@@ -32,7 +34,7 @@ const CartModal = () => {
                   <img
                     src={item.imgPath}
                     alt=""
-                    className="w-[64px] h-[64px]"
+                    className="w-[64px] h-[64px] rounded-md"
                   />
                   <div className="h-[50px]">
                     <h3 className="uppercase font-bold text-[15px] leading-[25px]">
@@ -48,7 +50,7 @@ const CartModal = () => {
                     onClick={() => {
                       dispatch(productsActions.decrementQuantity(item.id));
                     }}
-                    className="font-bold text-[15px] leading-[18px] opacity-25 "
+                    className="font-bold text-[15px] leading-[18px] opacity-25 hover:text-[#D87D4A] "
                   >
                     -
                   </button>
@@ -59,7 +61,7 @@ const CartModal = () => {
                     onClick={() => {
                       dispatch(productsActions.incrementQuantity(item.id));
                     }}
-                    className="font-bold text-[15px] leading-[18px] opacity-25"
+                    className="font-bold text-[15px] leading-[18px] opacity-25 hover:text-[#D87D4A]"
                   >
                     +
                   </button>
@@ -77,7 +79,13 @@ const CartModal = () => {
             </div>
             <Link to="/checkout">
               <button
-                onClick={() => dispatch(cartActions.modalOff())}
+                onClick={(e) => {
+                  if (cartItems.length === 0) {
+                    e.preventDefault();
+                  } else {
+                    dispatch(cartActions.modalOff());
+                  }
+                }}
                 className="uppercase text-[13px] leading-[18px] tracking-[1px] w-[271px] h-[48px] text-white font-bold bg-[#D87D4A] hover:bg-[#FBAF85] md:w-[313px] "
               >
                 checkout
