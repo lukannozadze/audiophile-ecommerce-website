@@ -2,12 +2,13 @@ import { Link } from "react-router-dom";
 import { cartActions } from "../../store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { productsActions } from "../../store/store";
-
+import { useHistory } from "react-router-dom";
 const CartModal = () => {
   const productsArr = useSelector((state) => state.products.productsArr);
   const totalPrice = useSelector((state) => state.products.totalPrice);
   const cartItems = productsArr.filter((item) => item.quantity > 0);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   return (
     <div className="font-manrope w-[327px] bg-white pb-[31px] rounded-lg absolute md:w-[377px]">
@@ -20,6 +21,9 @@ const CartModal = () => {
             <span
               onClick={() => {
                 dispatch(productsActions.deleteAllItems());
+                setTimeout(() => {
+                  history.push("/");
+                }, 1000);
               }}
               className="font-bold text-[15px] leading-[25px] opacity-50 underline cursor-pointer"
             >
