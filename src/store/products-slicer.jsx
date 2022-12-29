@@ -75,7 +75,6 @@ const productsSlice = createSlice({
       state.productsArr = cartItemsArr;
       localStorage.setItem("totalPrice", state.totalPrice);
       localStorage.setItem("cartItems", JSON.stringify(cartItemsArr));
-      console.log(state.totalPrice);
     },
     deleteAllItems(state) {
       const cartItemsArr = state.productsArr.slice();

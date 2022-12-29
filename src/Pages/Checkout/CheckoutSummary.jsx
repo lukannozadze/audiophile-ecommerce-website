@@ -1,11 +1,21 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CheckoutActions } from "../../store/store";
 
-const CheckoutSummary = () => {
+const CheckoutSummary = (props) => {
   const productsArr = useSelector((state) => state.products.productsArr);
   const totalPrice = useSelector((state) => state.products.totalPrice);
   const cartItems = productsArr.filter((item) => item.quantity > 0);
+  const isPermission = useSelector((state) => state.checkout.isPermission);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (isPermission) {
+      dispatch(CheckoutActions.modalOn());
+      dispatch(CheckoutActions.removePermission());
+    }
+  }, [isPermission]);
+
   return (
     <div className="font-manrope w-[327px] bg-white pb-[31px] rounded-lg md:w-[698px] 1.5xl:w-[350px]  h-fit  ">
       <div className="flex justify-center">
@@ -83,9 +93,11 @@ const CheckoutSummary = () => {
                 </span>
               </div>
             </div>
+
             <button
-              onClick={() => dispatch(CheckoutActions.modalOn())}
               className="uppercase text-[13px] leading-[18px] tracking-[1px] w-[271px] h-[48px] text-white font-bold bg-[#D87D4A] hover:bg-[#FBAF85] md:w-[632px] 1.5xl:w-[284px] "
+              form="checkout"
+              type="submit"
             >
               continue & pay
             </button>

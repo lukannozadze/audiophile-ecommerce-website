@@ -85,3 +85,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
 }
+input:focus {
+  outline: none !important;
+  border-color: #d87d4a;
+}

@@ -8,8 +8,7 @@ const CartModal = () => {
   const totalPrice = useSelector((state) => state.products.totalPrice);
   const cartItems = productsArr.filter((item) => item.quantity > 0);
   const dispatch = useDispatch();
-  console.log(totalPrice);
-  console.log(parseInt(localStorage.getItem("totalPrice")));
+
   return (
     <div className="font-manrope w-[327px] bg-white pb-[31px] rounded-lg absolute md:w-[377px]">
       <div className="flex justify-center">

@@ -1,8 +1,51 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 import walletImgPath from "../../assets/wallet.png";
+import { CheckoutActions } from "../../store/store";
+import { useDispatch } from "react-redux";
 const CheckoutForm = () => {
-  const [emoneyIsChecked, setEmoneyIsChecked] = useState(false);
+  const dispatch = useDispatch();
+  const phoneRegExp =
+    /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+  const schema = yup.object().shape({
+    name: yup.string().required("Name is Required"),
+    email: yup.string().email("Wrong Format").required("Email is Required"),
+    phone: yup
+      .string()
+      .matches(phoneRegExp, "Wrong Format")
+      .required("Phone Number is Required"),
+    address: yup.string().required("Address is Required"),
+    zipCode: yup
+      .string()
+      .required("ZIP Code is Required")
+      .length(5, "Must be Exactly 5 Characters")
+      .matches(/^[0-9]{5}/, "Wrong Format"),
+
+    city: yup.string().required("City is Required"),
+    country: yup.string().required("Country is Required"),
+    emoneyNumber: yup
+      .string()
+      .matches(phoneRegExp, "Wrong Format")
+      .required("e-Money Number is Required"),
+    emoneyPin: yup
+      .string()
+      .required("e-Money PIN is Required")
+      .length(4, "Must be Exactly 4 Characters")
+      .matches(/^[0-9]{4}/, "Wrong Format"),
+  });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const [emoneyIsChecked, setEmoneyIsChecked] = useState(true);
   const [cashIsChecked, setCashIsChecked] = useState(false);
+
   const handleChange = (e) => {
     if (e.target.id === "e-money") {
       setEmoneyIsChecked(!emoneyIsChecked);
@@ -12,12 +55,16 @@ const CheckoutForm = () => {
       setEmoneyIsChecked(false);
     }
   };
+  const submitForm = () => {
+    dispatch(CheckoutActions.setPermission());
+  };
+
   return (
     <div className="w-[327px] bg-white px-6 rounded-lg pt-6 pb-8 md:w-[689px] md:pt-[30px] 1.5xl:w-[730px] 1.5xl:px-[46px] ">
       <h1 className="uppercase text-[28px] font-bold leading-[38px] tracking-[1px] pb-6 md:text-[32px] md:leading-[32px] md:pb-[41px]">
         checkout
       </h1>
-      <form>
+      <form onSubmit={handleSubmit(submitForm)} id="checkout">
         <div>
           <span className="uppercase text-[#D87D4A] font-bold text-[13px] leading-[25px] tracking-[1px] ">
             billing details
@@ -25,47 +72,77 @@ const CheckoutForm = () => {
           <div className="flex flex-col gap-6 pb-6 pt-4">
             <div className="flex flex-col gap-6 md:flex-row md:justify-between">
               <div className="flex flex-col gap-2">
-                <label
-                  className="text-[12px] font-bold leading-[17px]"
-                  htmlFor="name"
-                >
-                  Name
-                </label>
+                <div className="flex items-center justify-between">
+                  <label
+                    className={`${
+                      errors.name?.message && "text-[#CD2C2C]"
+                    } text-[12px] font-bold leading-[17px]`}
+                    htmlFor="name"
+                  >
+                    Name
+                  </label>
+                  <span className="text-[#CD2C2C] text-[12px] font-medium leading-[17px]">
+                    {errors.name?.message}
+                  </span>
+                </div>
                 <input
-                  className="w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-[#D87D4A] md:w-[309px]"
+                  {...register("name")}
+                  className={`${
+                    errors.name?.message && "!border-2 !border-[#CD2C2C]"
+                  }
+                  w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md     md:w-[309px]"
+                  `}
                   type="text"
-                  name="name"
                   placeholder="Alexei Ward"
                 />
               </div>
 
               <div className="flex flex-col gap-2">
-                <label
-                  className="text-[12px] font-bold leading-[17px]"
-                  htmlFor="email"
-                >
-                  Email Address
-                </label>
+                <div className="flex items-center justify-between">
+                  <label
+                    className={`${
+                      errors.email?.message && "text-[#CD2C2C]"
+                    } text-[12px] font-bold leading-[17px]`}
+                    htmlFor="email"
+                  >
+                    Email Address
+                  </label>
+                  <span className="text-[#CD2C2C] text-[12px] font-medium leading-[17px]">
+                    {errors.email?.message}
+                  </span>
+                </div>
                 <input
+                  {...register("email")}
                   type="text"
-                  name="email"
                   placeholder="alexei@mail.com"
-                  className="w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-[#D87D4A] md:w-[309px]"
+                  className={`${
+                    errors.email?.message && "!border-2 !border-[#CD2C2C]"
+                  } w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-[#D87D4A] md:w-[309px]`}
                 />
               </div>
             </div>
-            <div className="flex flex-col gap-2">
-              <label
-                className="text-[12px] font-bold leading-[17px]"
-                htmlFor="phone"
-              >
-                Phone Number
-              </label>
+            <div className="flex flex-col gap-2 w-[280px] md:w-[309px]">
+              <div className="flex items-center justify-between">
+                <label
+                  className={` ${
+                    errors.phone?.message && "text-[#CD2C2C]"
+                  } text-[12px] font-bold leading-[17px]`}
+                  htmlFor="phone"
+                >
+                  Phone Number
+                </label>
+                <span className="text-[#CD2C2C] text-[12px] font-medium leading-[17px]">
+                  {errors.phone?.message}
+                </span>
+              </div>
+
               <input
+                {...register("phone")}
                 type="text"
-                name="phone"
                 placeholder="+1 202-555-0136"
-                className="w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-[#D87D4A] md:w-[309px]"
+                className={` ${
+                  errors.phone?.message && "!border-2 !border-[#CD2C2C]"
+                } w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-[#D87D4A] md:w-[309px]`}
               />
             </div>
           </div>
@@ -77,61 +154,97 @@ const CheckoutForm = () => {
           </span>
           <div className="flex flex-col gap-6 pt-4">
             <div className="flex flex-col gap-2">
-              <label
-                className="text-[12px] font-bold leading-[17px]"
-                htmlFor="address"
-              >
-                Your Address
-              </label>
+              <div className="flex items-center justify-between">
+                <label
+                  className={` ${
+                    errors.address?.message && "text-[#CD2C2C]"
+                  } text-[12px] font-bold leading-[17px]`}
+                  htmlFor="address"
+                >
+                  Your Address
+                </label>
+                <span className="text-[#CD2C2C] text-[12px] font-medium leading-[17px]">
+                  {errors.address?.message}
+                </span>
+              </div>
               <input
+                {...register("address")}
                 type="text"
-                name="address"
                 placeholder="1137 Williams Avenue"
-                className="w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-[#D87D4A] md:w-[641px]"
+                className={`  ${
+                  errors.address?.message && "!border-2 !border-[#CD2C2C]"
+                }  w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-[#D87D4A] md:w-[641px]`}
               />
             </div>
             <div className="flex flex-col gap-6 md:flex-row md:justify-between">
               <div className="flex flex-col gap-2">
-                <label
-                  className="text-[12px] font-bold leading-[17px]"
-                  htmlFor="zipCode"
-                >
-                  ZIP Code
-                </label>
+                <div className="flex items-center justify-between">
+                  <label
+                    className={` ${
+                      errors.zipCode?.message && "text-[#CD2C2C]"
+                    } text-[12px] font-bold leading-[17px]`}
+                    htmlFor="zipCode"
+                  >
+                    ZIP Code
+                  </label>
+                  <span className="text-[#CD2C2C] text-[12px] font-medium leading-[17px]">
+                    {errors.zipCode?.message}
+                  </span>
+                </div>
                 <input
+                  {...register("zipCode")}
                   type="text"
-                  name="zipCode"
                   placeholder="10001"
-                  className="w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-[#D87D4A] md:w-[309px]"
+                  className={` ${
+                    errors.zipCode?.message && "!border-2 !border-[#CD2C2C]"
+                  }   w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-[#D87D4A] md:w-[309px]`}
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <label
-                  className="text-[12px] font-bold leading-[17px]"
-                  htmlFor="city"
-                >
-                  City
-                </label>
+                <div className="flex items-center justify-between">
+                  <label
+                    className={` ${
+                      errors.city?.message && "text-[#CD2C2C]"
+                    } text-[12px] font-bold leading-[17px]`}
+                    htmlFor="city"
+                  >
+                    City
+                  </label>
+                  <span className="text-[#CD2C2C] text-[12px] font-medium leading-[17px]">
+                    {errors.city?.message}
+                  </span>
+                </div>
                 <input
+                  {...register("city")}
                   type="text"
-                  name="city"
                   placeholder="New York"
-                  className="w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-[#D87D4A] md:w-[309px]"
+                  className={`${
+                    errors.city?.message && "!border-2 !border-[#CD2C2C]"
+                  } w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-[#D87D4A] md:w-[309px]`}
                 />
               </div>
             </div>
             <div className="flex flex-col gap-2 mb-8">
-              <label
-                className="text-[12px] font-bold leading-[17px]"
-                htmlFor="country"
-              >
-                Country
-              </label>
+              <div className="flex items-center justify-between w-[280px] md:w-[309px]">
+                <label
+                  className={` ${
+                    errors.country?.message && "text-[#CD2C2C]"
+                  } text-[12px] font-bold leading-[17px]`}
+                  htmlFor="country"
+                >
+                  Country
+                </label>
+                <span className="text-[#CD2C2C] text-[12px] font-medium leading-[17px]">
+                  {errors.country?.message}
+                </span>
+              </div>
               <input
+                {...register("country")}
                 type="text"
-                name="country"
                 placeholder="United States"
-                className="w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-[#D87D4A] md:w-[309px]"
+                className={` ${
+                  errors.country?.message && "!border-2 !border-[#CD2C2C]"
+                } w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-[#D87D4A] md:w-[309px]`}
               />
             </div>
           </div>
@@ -198,39 +311,55 @@ const CheckoutForm = () => {
           </div>
         </div>
 
-        {emoneyIsChecked ? (
+        {emoneyIsChecked && (
           <div className="flex flex-col gap-6 md:flex-row md:justify-between">
             <div className="flex flex-col gap-2">
-              <label
-                className="text-[12px] font-bold leading-[17px]"
-                htmlFor="emoney-number"
-              >
-                e-Money Number
-              </label>
+              <div className="flex items-center justify-between">
+                <label
+                  className={` ${
+                    errors.emoneyNumber?.message && "text-[#CD2C2C]"
+                  } text-[12px] font-bold leading-[17px]`}
+                  htmlFor="emoneyNumber"
+                >
+                  e-Money Number
+                </label>
+                <span className="text-[#CD2C2C] text-[12px] font-medium leading-[17px]">
+                  {errors.emoneyNumber?.message}
+                </span>
+              </div>
               <input
+                {...register("emoneyNumber")}
                 type="text"
-                name="emoney-number"
                 placeholder="238521993"
-                className="w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-[#D87D4A]  md:w-[309px]"
+                className={`${
+                  errors.emoneyNumber?.message && "!border-2 !border-[#CD2C2C]"
+                } w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-[#D87D4A]  md:w-[309px]`}
               />
             </div>
             <div className="flex flex-col gap-2">
-              <label
-                className="text-[12px] font-bold leading-[17px]"
-                htmlFor="emoney-pin"
-              >
-                e-Money PIN
-              </label>
+              <div className="flex items-center justify-between">
+                <label
+                  className={` ${
+                    errors.emoneyPin?.message && "text-[#CD2C2C]"
+                  } text-[12px] font-bold leading-[17px]`}
+                  htmlFor="emoneyPin"
+                >
+                  e-Money PIN
+                </label>
+                <span className="text-[#CD2C2C] text-[12px] font-medium leading-[17px]">
+                  {errors.emoneyPin?.message}
+                </span>
+              </div>
               <input
+                {...register("emoneyPin")}
                 type="text"
-                name="emoney-pin"
                 placeholder="6891"
-                className="w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-[#D87D4A] md:w-[309px]"
+                className={` ${
+                  errors.emoneyPin?.message && "!border-2 !border-[#CD2C2C]"
+                } w-[280px] placeholder:text-[14px] placeholder:leading-[19px] placeholder:font-bold py-[17px] pl-6 border-[1px] border-[#CFCFCF] rounded-md outline-[#D87D4A] md:w-[309px]`}
               />
             </div>
           </div>
-        ) : (
-          ""
         )}
         {cashIsChecked ? (
           <div className="flex gap-8">
