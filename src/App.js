@@ -11,41 +11,53 @@ import FirstModelSpeaker from "./Pages/Product Detail Speakers/FirstModelSpeaker
 import SecondModelSpeaker from "./Pages/Product Detail Speakers/SecondModelSpeaker";
 import FirstModelEarphone from "./Pages/Product Detail Earphones/FirstModelEarphone";
 import CheckoutPage from "./Pages/Checkout/CheckoutPage";
+import ScrollToTop from "./Pages/ScrollToTop";
 
 function App() {
   return (
     <React.Fragment>
       <Route path="/" exact>
+        <ScrollToTop />
         <MainPage />
       </Route>
       <Route path="/headphones">
+        <ScrollToTop />
         <HeadphonesPage />
       </Route>
       <Route path="/speakers">
+        <ScrollToTop />
         <SpeakersPage />
       </Route>
       <Route path="/earphones">
+        <ScrollToTop />
         <EarphonesPage />
       </Route>
       <Route path="/xx9-mark-two-headphones">
+        <ScrollToTop />
         <FirstModelHeadphone />
       </Route>
       <Route path="/xx9-mark-one-headphones">
+        <ScrollToTop />
         <SecondModelHeadphone />
       </Route>
       <Route path="/xx59-headphones">
+        <ScrollToTop />
         <ThirdModelHeadphone />
       </Route>
       <Route path="/zx9-speaker">
+        <ScrollToTop />
         <FirstModelSpeaker />
       </Route>
       <Route path="/zx7-speaker">
+        <ScrollToTop />
         <SecondModelSpeaker />
       </Route>
       <Route path="/yx1-wireless-earphones">
+        <ScrollToTop />
         <FirstModelEarphone />
       </Route>
       <Route path="/checkout">
+        <ScrollToTop />
         <CheckoutPage />
       </Route>
     </React.Fragment>
