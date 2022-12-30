@@ -10,7 +10,7 @@ const SecondModelProduct = () => {
           zx7 speaker
         </h2>
         <Link to="/zx7-speaker">
-          <button className="uppercase w-[160px] h-[48px] p-auto text-[13px] leading-[18px] tracking-[1px] font-bold border-2 border-black hover:text-white hover:bg-black ">
+          <button className="uppercase w-[160px] h-[48px] p-auto text-[13px] leading-[18px] tracking-[1px] font-bold border-2 border-black hover:text-white hover:bg-black duration-500 ">
             see product
           </button>
         </Link>

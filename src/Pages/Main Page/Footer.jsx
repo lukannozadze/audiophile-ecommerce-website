@@ -2,7 +2,7 @@ import audiophilePath from "../../assets/audiophile.png";
 import FacebookIcon from "../UI/SocialMediaIcons/FacebookIcon";
 import TwitterIcon from "../UI/SocialMediaIcons/TwitterIcon";
 import InstagramIcon from "../UI/SocialMediaIcons/InstagramIcon";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const navListArr = [
   { name: "home", routePath: "/" },
@@ -23,11 +23,16 @@ const Footer = () => {
         <nav>
           <ul className="flex flex-col gap-4 items-center uppercase text-[13px] leading-[25px] tracking-[2px] font-bold md:flex-row">
             {navListArr.map((item) => (
-              <Link key={item.name} to={item.routePath}>
-                <li className="hover:text-[#D87D4A] cursor-pointer">
+              <NavLink
+                key={item.name}
+                to={item.routePath}
+                activeClassName="text-[#D87D4A]"
+                exact={true}
+              >
+                <li className="hover:text-[#D87D4A] cursor-pointer duration-500">
                   {item.name}
                 </li>
-              </Link>
+              </NavLink>
             ))}
           </ul>
         </nav>

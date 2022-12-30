@@ -5,16 +5,20 @@
 
 #cart-icon:hover path {
   fill: #d87d4a;
+  transition-duration: 0.5s;
 }
 
 #facebook:hover path {
   fill: #d87d4a;
+  transition-duration: 0.5s;
 }
 #twitter:hover path {
   fill: #d87d4a;
+  transition-duration: 0.5s;
 }
 #instagram:hover path {
   fill: #d87d4a;
+  transition-duration: 0.5s;
 }
 #modal::backdrop {
   background: red;

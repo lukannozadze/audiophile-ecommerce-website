@@ -121,7 +121,7 @@ const CheckoutModal = () => {
             dispatch(CheckoutActions.modalOff());
             localStorage.clear();
           }}
-          className="uppercase text-[13px] leading-[18px] tracking-[1px] w-[259px] h-[48px] text-white font-bold bg-[#D87D4A] hover:bg-[#FBAF85] md:w-[444px] md:mt-[46px] "
+          className="uppercase text-[13px] leading-[18px] tracking-[1px] w-[259px] h-[48px] text-white font-bold bg-[#D87D4A] hover:bg-[#FBAF85] md:w-[444px] md:mt-[46px] duration-500 "
         >
           back to home
         </button>

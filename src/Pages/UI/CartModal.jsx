@@ -89,7 +89,7 @@ const CartModal = () => {
                     dispatch(cartActions.modalOff());
                   }
                 }}
-                className="uppercase text-[13px] leading-[18px] tracking-[1px] w-[271px] h-[48px] text-white font-bold bg-[#D87D4A] hover:bg-[#FBAF85] md:w-[313px] "
+                className="uppercase text-[13px] leading-[18px] tracking-[1px] w-[271px] h-[48px] text-white font-bold bg-[#D87D4A] hover:bg-[#FBAF85] md:w-[313px] duration-500 "
               >
                 checkout
               </button>

@@ -95,7 +95,7 @@ const CheckoutSummary = (props) => {
             </div>
 
             <button
-              className="uppercase text-[13px] leading-[18px] tracking-[1px] w-[271px] h-[48px] text-white font-bold bg-[#D87D4A] hover:bg-[#FBAF85] md:w-[632px] 1.5xl:w-[284px] "
+              className="uppercase text-[13px] leading-[18px] tracking-[1px] w-[271px] h-[48px] text-white font-bold bg-[#D87D4A] hover:bg-[#FBAF85] md:w-[632px] 1.5xl:w-[284px] duration-500 "
               form="checkout"
               type="submit"
             >

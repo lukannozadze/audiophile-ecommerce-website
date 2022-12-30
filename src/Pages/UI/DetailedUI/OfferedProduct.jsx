@@ -9,7 +9,7 @@ const OfferedProduct = (props) => {
         {props.offeredTitle}
       </h2>
       <Link to={props.offeredRoutePath}>
-        <button className="uppercase text-white  bg-[#D87D4A] w-[160px] h-[48px]  text-[13px] font-bold tracking-[1px] hover:bg-[#FBAF85] ">
+        <button className="uppercase text-white  bg-[#D87D4A] w-[160px] h-[48px]  text-[13px] font-bold tracking-[1px] hover:bg-[#FBAF85] duration-500 ">
           see product
         </button>
       </Link>

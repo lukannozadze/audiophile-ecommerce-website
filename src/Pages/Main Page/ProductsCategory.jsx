@@ -47,7 +47,7 @@ const ProductsCategory = () => {
                     onClick={() => {
                       dispatch(dropdownActions.modalOff());
                     }}
-                    className="uppercase text-[13px] leading-[18px] tracking-[1px] text-black font-bold opacity-50 hover:text-[#D87D4A] cursor-pointer"
+                    className="uppercase text-[13px] leading-[18px] tracking-[1px] text-black font-bold opacity-50 hover:text-[#D87D4A] cursor-pointer duration-500"
                   >
                     shop
                   </span>

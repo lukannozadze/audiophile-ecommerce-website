@@ -5,10 +5,15 @@ import * as yup from "yup";
 import walletImgPath from "../../assets/wallet.png";
 import { CheckoutActions } from "../../store/store";
 import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 const CheckoutForm = () => {
+  const [emoneyIsChecked, setEmoneyIsChecked] = useState(true);
+  const [cashIsChecked, setCashIsChecked] = useState(false);
   const dispatch = useDispatch();
+
   const phoneRegExp =
     /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+
   const schema = yup.object().shape({
     name: yup.string().required("Name is Required"),
     email: yup.string().email("Wrong Format").required("Email is Required"),
@@ -25,16 +30,18 @@ const CheckoutForm = () => {
 
     city: yup.string().required("City is Required"),
     country: yup.string().required("Country is Required"),
+
     emoneyNumber: yup
       .string()
-      .matches(phoneRegExp, "Wrong Format")
-      .required("e-Money Number is Required"),
+      .required("e-Money Number is Required")
+      .matches(phoneRegExp, "Wrong Format"),
     emoneyPin: yup
       .string()
       .required("e-Money PIN is Required")
       .length(4, "Must be Exactly 4 Characters")
       .matches(/^[0-9]{4}/, "Wrong Format"),
   });
+
   const {
     register,
     handleSubmit,
@@ -42,9 +49,6 @@ const CheckoutForm = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
-
-  const [emoneyIsChecked, setEmoneyIsChecked] = useState(true);
-  const [cashIsChecked, setCashIsChecked] = useState(false);
 
   const handleChange = (e) => {
     if (e.target.id === "e-money") {
@@ -58,6 +62,15 @@ const CheckoutForm = () => {
   const submitForm = () => {
     dispatch(CheckoutActions.setPermission());
   };
+  useEffect(() => {
+    if (
+      Object.keys(errors).includes("emoneyNumber") &&
+      Object.keys(errors).includes("emoneyPin") &&
+      cashIsChecked
+    ) {
+      dispatch(CheckoutActions.setPermission());
+    }
+  }, [errors]);
 
   return (
     <div className="w-[327px] bg-white px-6 rounded-lg pt-6 pb-8 md:w-[689px] md:pt-[30px] 1.5xl:w-[730px] 1.5xl:px-[46px] ">

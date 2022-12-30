@@ -15,7 +15,7 @@ const ThirdModelProduct = () => {
           yx1 earphones
         </h2>
         <Link to="/yx1-wireless-earphones">
-          <button className="uppercase w-[160px] h-[48px] p-auto text-[13px] leading-[18px] tracking-[1px] font-bold border-2 border-black hover:text-white hover:bg-black">
+          <button className="uppercase w-[160px] h-[48px] p-auto text-[13px] leading-[18px] tracking-[1px] font-bold border-2 border-black hover:text-white hover:bg-black duration-500">
             see product
           </button>
         </Link>

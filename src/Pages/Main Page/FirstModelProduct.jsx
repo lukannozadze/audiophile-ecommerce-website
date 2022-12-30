@@ -33,7 +33,7 @@ const FirstModelProduct = () => {
           truly remarkable sound.
         </p>
         <Link to="/zx9-speaker">
-          <button className="uppercase w-[160px] h-[48px] font-bold p-auto text-white text-[13px] leading-[18px] tracking-[1px] bg-black hover:bg-[#4C4C4C]">
+          <button className="uppercase w-[160px] h-[48px] font-bold p-auto text-white text-[13px] leading-[18px] tracking-[1px] bg-black hover:bg-[#4C4C4C] duration-500 ">
             see product
           </button>
         </Link>

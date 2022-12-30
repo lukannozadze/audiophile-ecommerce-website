@@ -3,7 +3,7 @@ import AudiophileImgPath from "../../assets/audiophile.png";
 import dropDownIconPath from "../../assets/dropdown-icon.png";
 import { useDispatch } from "react-redux";
 import { dropdownActions, cartActions } from "../../store/store";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const navListArr = [
   { name: "home", routePath: "/" },
@@ -34,11 +34,16 @@ const Header = () => {
         <nav className="hidden xl:block ml-[-200px] 2xl:ml-[-5px] xxl:ml-[-215px] ">
           <ul className="flex  gap-4 items-center uppercase text-[13px] leading-[25px] text-white tracking-[2px] font-bold ">
             {navListArr.map((item) => (
-              <Link key={item.name} to={item.routePath}>
-                <li className="hover:text-[#D87D4A] cursor-pointer">
+              <NavLink
+                key={item.name}
+                to={item.routePath}
+                exact={true}
+                activeClassName="text-[#D87D4A]"
+              >
+                <li className="hover:text-[#D87D4A]  duration-500 cursor-pointer">
                   {item.name}
                 </li>
-              </Link>
+              </NavLink>
             ))}
           </ul>
         </nav>

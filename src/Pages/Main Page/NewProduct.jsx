@@ -27,7 +27,7 @@ const NewProduct = () => {
               made for the passionate music enthusiast.
             </p>
             <Link to="/xx9-mark-two-headphones">
-              <button className="mt-[28px] bg-[#D87D4A] w-[160px] h-[48px] p-auto text-[13px] font-bold tracking-[1px] hover:bg-[#FBAF85] ">
+              <button className="mt-[28px] bg-[#D87D4A] w-[160px] h-[48px] p-auto text-[13px] font-bold tracking-[1px] hover:bg-[#FBAF85] duration-500 ">
                 SEE PRODUCT
               </button>
             </Link>
