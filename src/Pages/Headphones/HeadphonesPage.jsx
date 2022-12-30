@@ -30,18 +30,24 @@ const HeadphonesPage = () => {
     <div
       className={`${
         DropdownModalIsShown || CartModalIsShown
-          ? "fixed "
+          ? "absolute top-0 "
           : "overflow-x-hidden"
       }`}
     >
       <Header />
       {DropdownModalIsShown && (
-        <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 ">
+        <div
+          id="dropdown-modal-container"
+          className="w-screen h-screen absolute bg-black z-10 bg-opacity-40 "
+        >
           <DropdownModal />
         </div>
       )}
       {CartModalIsShown && (
-        <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 flex justify-center pt-6 md:justify-end md:pr-[65px]">
+        <div
+          id="cart-modal-container"
+          className="w-screen h-screen absolute bg-black z-10 bg-opacity-40 flex justify-center pt-6 md:justify-end md:pr-[65px]"
+        >
           <CartModal />
         </div>
       )}

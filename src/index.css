@@ -93,3 +93,13 @@ input:focus {
   outline: none !important;
   border-color: #d87d4a;
 }
+
+#cart-modal-container,
+#dropdown-modal-container,
+#checkout-modal-container,
+#modals-container {
+  height: 100%;
+  height: -moz-available;
+  height: -webkit-fill-available;
+  height: stretch;
+}

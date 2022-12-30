@@ -18,16 +18,24 @@ const DetailedPage = (props) => {
   const CartModalIsShown = useSelector((state) => state.cart.modalIsShown);
   return (
     <div
-      className={`${DropdownModalIsShown || CartModalIsShown ? "fixed" : ""}`}
+      className={`${
+        DropdownModalIsShown || CartModalIsShown ? "absolute top-0" : ""
+      }`}
     >
       <Header />
       {DropdownModalIsShown && (
-        <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 ">
+        <div
+          id="dropdown-modal-container"
+          className="w-screen h-screen absolute bg-black z-10 bg-opacity-40 "
+        >
           <DropdownModal />
         </div>
       )}
       {CartModalIsShown && (
-        <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 flex justify-center pt-6 md:justify-end md:pr-[65px] xl:pr-[190px] 1.5xl:pr-[140px] xxl:pr-[390px]">
+        <div
+          id="cart-modal-container"
+          className="w-screen h-screen absolute bg-black z-10 bg-opacity-40 flex justify-center pt-6 md:justify-end md:pr-[65px] xl:pr-[190px] 1.5xl:pr-[140px] xxl:pr-[390px]"
+        >
           <CartModal />
         </div>
       )}

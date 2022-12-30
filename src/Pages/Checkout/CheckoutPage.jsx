@@ -20,24 +20,33 @@ const CheckoutPage = () => {
     <div
       className={`${
         DropdownModalIsShown || CartModalIsShown || CheckoutModalIsShown
-          ? "fixed"
+          ? "absolute top-0"
           : ""
       }`}
     >
-      <div className="font-manrope h-screen">
+      <div id="modals-container" className="font-manrope h-screen">
         <Header />
         {DropdownModalIsShown && (
-          <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 ">
+          <div
+            id="dropdown-modal-container"
+            className="w-screen h-screen absolute bg-black z-10 bg-opacity-40 "
+          >
             <DropdownModal />
           </div>
         )}
         {CartModalIsShown && (
-          <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 flex justify-center pt-6 md:justify-end  md:pr-[65px] xl:pr-[190px] 1.5xl:pr-[140px] xxl:pr-[390px]">
+          <div
+            id="cart-modal-container"
+            className="w-screen h-screen absolute bg-black z-10 bg-opacity-40 flex justify-center pt-6 md:justify-end  md:pr-[65px] xl:pr-[190px] 1.5xl:pr-[140px] xxl:pr-[390px]"
+          >
             <CartModal />
           </div>
         )}
         {CheckoutModalIsShown && (
-          <div className="w-screen h-screen fixed bg-black z-10 bg-opacity-40 pt-[142px] flex justify-center">
+          <div
+            id="checkout-modal-container"
+            className="w-screen h-screen absolute bg-black z-10 bg-opacity-40 pt-[142px] flex justify-center"
+          >
             <CheckoutModal />
           </div>
         )}
